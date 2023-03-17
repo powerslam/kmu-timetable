@@ -1,0 +1,19 @@
+.timetable {
+    border: 1px solid black;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.timetableCell {
+    width: 60px;
+    height: 60px;
+
+    padding: 1px;
+
+    border: 1px solid black;
+
+    text-align: center;
+    line-height: 60px;
+}
