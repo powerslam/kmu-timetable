@@ -1,8 +1,16 @@
 import styles from '../styles/TimeTable.module.css';
 
-const TimeTableCell = ({text="", isInLine=false}) => {
+import { common_height } from '../lib/variables';
+
+const TimeTableCell = ({text, interval=1, isInLine=false}) => {
+    console.log(interval, text);
+
     return (
-        <div className={styles.timetableCell + (isInLine ? ' ' + styles.inline : '')}>
+        <div 
+            style={{ 
+                height: common_height * interval,
+            }}
+            className={styles.timetableCell + (isInLine ? ' ' + styles.inline : '')}>
             {text}
         </div>
     );

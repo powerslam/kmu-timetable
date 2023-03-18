@@ -1,30 +1,15 @@
 import TimeTableCell from './TimeTableCell';
 import TimeTableColumn from './TimeTableColumn';
 
-import { week_str } from '../lib/variables';
+import { week_str, time_str } from '../lib/variables';
 
 const TimeTable = () => {
     return (
         <div>
-            <div id="head">
-                {
-                    week_str.map((v, i) => {
-                        return <TimeTableCell isInLine={true} key={i} text={v}/>
-                    })
-                }
-            </div>
-            <div id="body">
-                <TimeTableColumn />
-
-                <TimeTableColumn />
-                <TimeTableColumn />
-                <TimeTableColumn />
-                <TimeTableColumn />
-                <TimeTableColumn />
-                <TimeTableColumn />
-                <TimeTableColumn />
-                
-                <TimeTableColumn />    
+            <div 
+                id="body">
+                <TimeTableColumn data={time_str.alpha} />
+                <TimeTableColumn data={time_str.number} />
             </div>
         </div>
     );

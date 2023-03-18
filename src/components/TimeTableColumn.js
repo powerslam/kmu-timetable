@@ -2,16 +2,21 @@ import TimeTableCell from "./TimeTableCell";
 import styles from '../styles/TimeTable.module.css';
 
 
-const TimeTableColumn = () => {
+const TimeTableColumn = ({ data }) => {
+    const { time, interval } = data;
+
+    console.log(time, interval);
+
     return (
         <div className={styles.inline}>
-            {
-                ["A", "B", "C", "D", "E", "F", "G", "H", "I"].map((i, v) => {
+            {   
+                data ? time.map((v, i) => {
                     return <TimeTableCell 
-                        key={v} 
-                        text={`${i} 교시`} 
+                        key={i}
+                        interval={interval[i]}
+                        text={v} 
                     />
-                })
+                }) : ''
             }
         </div>
     )
