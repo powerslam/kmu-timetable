@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const getDataFromJson = () => {
+export const getDataFromJson = () => {
     // 원래는 REST API 로 가져오기 중요
     const buffer = fs.readFileSync('../../public/data.json');
     const json = JSON.parse(buffer.toString());
@@ -10,14 +10,14 @@ const getDataFromJson = () => {
             return {
                 id: lecRom.id,
                 year: lecRom.year,
+                credits: lecRom.credits,                    // 학점 (학점/이론/실습)
                 subjectId: lecRom.subjectId,
                 subjectNm: lecRom.subjectNm,
                 classSequence: lecRom.classSequence,
-                credits: lecRom.credits,                    // 학점 (학점/이론/실습)
                 lectureTimes: lecRom.schedule.lectureTimes.map((lecTime) => ({
-                    day: lecTime.dayOfWeek,
+                    block: 1,
                     start: lecTime.start,
-                    end: lecTime.end,
+                    day: lecTime.dayOfWeek,
                     instructorId: lecTime.instructorId,
                     classRoomCode: lecTime.classRoomCode,
                     classRoomName: lecTime.classRoomName,
@@ -31,9 +31,14 @@ const getDataFromJson = () => {
         totalCount: json.lectureRoms.totalCount,       // 개설 과목 수
     }
 
+    for(let i = 0; i < data.results.length; i++){
+        const tmp = [data.results[i].lectureTimes[0]];
+        for(let j = 1; j < data.results[i].lectureTimes.length; j++) {
+            if(tmp[tmp.length - 1].day === data.results[i].lectureTimes[j].day) tmp[tmp.length - 1].block += 1;
+            else tmp.push(data.results[i].lectureTimes[j]);
+        }
+        data.results[i].lectureTimes = tmp;
+    }
+
     return data;
 }
-
-//const data = getDataFromJson();
-//console.log(data.results[0].lectureTimes);
-
