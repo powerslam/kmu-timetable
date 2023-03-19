@@ -5,13 +5,14 @@ import { week_str, time_str } from '../lib/variables';
 
 const TimeTable = () => {
     return (
-        <div>
-            <div 
-                id="body">
-                <TimeTableColumn data={time_str.alpha} />
-                <TimeTableColumn data={time_str.number} />
-            </div>
-        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <th><TimeTableColumn data={time_str.alpha} /></th>
+                    <th><TimeTableColumn data={time_str.number} /></th>
+                </tr>
+            </tbody>
+        </table>
     );
 }
 
