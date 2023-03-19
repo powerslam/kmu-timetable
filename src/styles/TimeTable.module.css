@@ -7,6 +7,8 @@
 }
 
 .timetableCell {
-    width: 70px;
+    border: 1px solid black;
+
+    width: 75px;
     text-align: center;
 }
