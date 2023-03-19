@@ -1,15 +1,32 @@
 import TimeTableCell from './TimeTableCell';
 import TimeTableColumn from './TimeTableColumn';
 
-import { week_str, time_str } from '../lib/variables';
+import { week_data, time_data, null_data, sample_data } from '../lib/variables';
 
 const TimeTable = () => {
     return (
-        <table>
+        <table style={{ margin: "auto" }}>
             <tbody>
                 <tr>
-                    <th><TimeTableColumn data={time_str.alpha} /></th>
-                    <th><TimeTableColumn data={time_str.number} /></th>
+                    {
+                        week_data.map((v, i) => {
+                            return <td><TimeTableCell key={i} text={v} interval={0.5}/></td>
+                        })
+                    }
+                </tr>
+
+                <tr>
+                    <th><TimeTableColumn data={time_data.alpha} /></th>
+                    
+                    <td><TimeTableColumn data={sample_data} /></td>
+
+                    {
+                        Array(6).fill(1).map((_, i) => {
+                            return <td key={i}><TimeTableColumn data={null_data} /></td>
+                        })
+                    }
+
+                    <th><TimeTableColumn data={time_data.number} /></th>
                 </tr>
             </tbody>
         </table>
