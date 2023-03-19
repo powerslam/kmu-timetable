@@ -1,5 +1,7 @@
-export const week_str = ["\u00A0", "월", "화", "수", "목", "금", "토", "일", "\u00A0"];
-export const time_str = {
+const null_str = "\u00A0";
+
+export const week_data = [null_str, "월", "화", "수", "목", "금", "토", "일", null_str];
+export const time_data = {
     alpha: {
         time:
             {
@@ -10,8 +12,10 @@ export const time_str = {
                 night: [ "10A", "10B", "11A", "11B", "12A", "12B", "13A", "13B", "14A", "14B" ]
             },
 
-        interval: [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], 
+        interval: {
+            daytime: Array(18).fill(1),
+            night: Array(10).fill(1),
+        } 
     },
 
     number: {
@@ -31,8 +35,35 @@ export const time_str = {
                 // 야간 (25분 단위)
             },
 
-        interval: [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-                    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+        interval: {
+            daytime: Array(18).fill(1),
+            night: Array(10).fill(1),
+        }
     },
 }
+
+export const null_data = {
+    time: {
+            daytime: Array(18).fill(null_str),
+            night: Array(10).fill(null_str),
+        },
+
+    interval: {
+        daytime: Array(18).fill(1),
+        night: Array(10).fill(1)
+    }
+};
+
+export const sample_data = {
+    time: {
+            daytime: ["\u00A0", "\u00A0", "\u00A0", "지리공간의 이해", "\u00A0", "사제동행세미나", "자료구조", "\u00A0", "\u00A0", "\u00A0"],
+            night: Array(10).fill(null_str),
+        },
+
+    interval: {
+        daytime: [1, 1, 1, 7, 1, 1, 3, 1, 1, 1, 1, 1],
+        night: Array(10).fill(1)
+    }
+};
+
 export const common_height = 50;
