@@ -10,11 +10,11 @@ const TimeTableColumn = ({ data }) => {
     return (
         <div className={styles.inline}>
             {   
-                data ? time.map((v, i) => {
+                data ? time.daytime.map((v, i) => {
                     return <TimeTableCell 
                         key={i}
                         interval={interval[i]}
-                        text={v} 
+                        text={v}
                     />
                 }) : ''
             }
