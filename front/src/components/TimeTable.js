@@ -1,7 +1,7 @@
 import TimeTableCell from './TimeTableCell';
 import TimeTableColumn from './TimeTableColumn';
 
-import { week_data, time_data, null_data, sample_data } from '../lib/variables';
+import { week_data, time_data, weekly } from '../lib/variables';
 
 const TimeTable = () => {
     return (
@@ -17,12 +17,10 @@ const TimeTable = () => {
 
                 <tr>
                     <th><TimeTableColumn data={time_data.alpha} /></th>
-                    
-                    <td><TimeTableColumn data={sample_data} /></td>
 
                     {
-                        Array(6).fill(1).map((_, i) => {
-                            return <td key={i}><TimeTableColumn data={null_data} /></td>
+                        weekly.map((v, i) => {
+                            return <td key={i}><TimeTableColumn data={v} /></td>
                         })
                     }
 

@@ -6,6 +6,9 @@ function App() {
     <div>
       <TimeTableProvider>
         <TimeTable />
+        <>{
+          "수강과목 추가하기 만들기"
+        }</>
       </TimeTableProvider>
     </div>  
   );

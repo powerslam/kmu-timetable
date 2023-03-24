@@ -1,5 +1,6 @@
-const fs = require('fs');
+//const fs = require('fs');
 
+/*
 export const getDataFromJson = () => {
     // 원래는 REST API 로 가져오기 중요
     const buffer = fs.readFileSync('../../public/data.json');
@@ -8,12 +9,9 @@ export const getDataFromJson = () => {
     const data = {
         results: json.lectureRoms.results.map((lecRom) => {
             return {
-                id: lecRom.id,
-                year: lecRom.year,
                 credits: lecRom.credits,                    // 학점 (학점/이론/실습)
-                subjectId: lecRom.subjectId,
+                subjectCd: `${lecRom.subjectId}-${lecRom.classSequence}`,
                 subjectNm: lecRom.subjectNm,
-                classSequence: lecRom.classSequence,
                 lectureTimes: lecRom.schedule.lectureTimes.map((lecTime) => ({
                     block: 1,
                     start: lecTime.start,
@@ -42,3 +40,6 @@ export const getDataFromJson = () => {
 
     return data;
 }
+
+
+console.log(getDataFromJson()); */
