@@ -129,4 +129,4 @@ export const weekly = [
 
 ]
 
-export const common_height = 50;
+export const common_height = 60;

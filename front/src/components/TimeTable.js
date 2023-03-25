@@ -10,13 +10,13 @@ const TimeTable = () => {
                 <tr>
                     {
                         week_data.map((v, i) => {
-                            return <td><TimeTableCell key={i} text={v} interval={0.5}/></td>
+                            return <td><TimeTableCell key={i} text={v} interval={0.8} verticalCenter={true}/></td>
                         })
                     }
                 </tr>
 
                 <tr>
-                    <th><TimeTableColumn data={time_data.alpha} /></th>
+                    <th><TimeTableColumn data={time_data.alpha} verticalCenter={true}/></th>
 
                     {
                         weekly.map((v, i) => {
@@ -24,7 +24,7 @@ const TimeTable = () => {
                         })
                     }
 
-                    <th><TimeTableColumn data={time_data.number} /></th>
+                    <th><TimeTableColumn data={time_data.number} verticalCenter={true} /></th>
                 </tr>
             </tbody>
         </table>

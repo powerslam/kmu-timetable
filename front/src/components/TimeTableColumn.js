@@ -2,7 +2,7 @@ import TimeTableCell from "./TimeTableCell";
 import styles from '../styles/TimeTable.module.css';
 
 
-const TimeTableColumn = ({ data }) => {
+const TimeTableColumn = ({ data, verticalCenter }) => {
     const { time, interval } = data;
 
     return (
@@ -11,8 +11,9 @@ const TimeTableColumn = ({ data }) => {
                 data ? time.daytime.map((v, i) => {
                     return <TimeTableCell 
                         key={i}
-                        interval={interval.daytime[i]}
                         text={v}
+                        verticalCenter={verticalCenter}
+                        interval={interval.daytime[i]}
                     />
                 }) : ''
             }
