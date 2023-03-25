@@ -1,14 +1,14 @@
 import { TimeTableProvider } from './lib/TimeTableContext';
+
 import TimeTable from './components/TimeTable';
+import AddButton from './components/AddButton';
 
 function App() {
   return (
     <div>
       <TimeTableProvider>
         <TimeTable />
-        <>{
-          "수강과목 추가하기 만들기"
-        }</>
+        <AddButton />
       </TimeTableProvider>
     </div>  
   );
