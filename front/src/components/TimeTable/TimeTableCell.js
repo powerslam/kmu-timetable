@@ -1,6 +1,6 @@
-import styles from '../styles/TimeTable.module.css';
+import styles from '../../styles/TimeTable.module.css';
 
-import { common_height } from '../lib/variables';
+import { common_height } from '../../lib/variables';
 
 const TimeTableCell = ({text, interval=1, isInLine=false, verticalCenter=false}) => {
     //console.log(interval, text);

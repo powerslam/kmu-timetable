@@ -1,5 +1,5 @@
 import TimeTableCell from "./TimeTableCell";
-import styles from '../styles/TimeTable.module.css';
+import styles from '../../styles/TimeTable.module.css';
 
 
 const TimeTableColumn = ({ data, verticalCenter }) => {
@@ -12,8 +12,8 @@ const TimeTableColumn = ({ data, verticalCenter }) => {
                     return <TimeTableCell 
                         key={i}
                         text={v}
-                        verticalCenter={verticalCenter}
                         interval={interval.daytime[i]}
+                        verticalCenter={verticalCenter}
                     />
                 }) : ''
             }
