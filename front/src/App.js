@@ -1,14 +1,18 @@
 import { TimeTableProvider } from './lib/TimeTableContext';
 
-import TimeTable from './components/TimeTable';
-import AddButton from './components/AddButton';
+import TimeTable from './components/TimeTable/TimeTable';
+import AddButton from './components/SearchMenu/AddButton';
+import SearchMenu from './components/SearchMenu/SearchMenu';
 
 function App() {
   return (
-    <div>
+    <div style={{
+      textAlign: "center",
+    }}>
       <TimeTableProvider>
         <TimeTable />
         <AddButton />
+        <SearchMenu />
       </TimeTableProvider>
     </div>  
   );
