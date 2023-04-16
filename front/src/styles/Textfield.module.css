@@ -1,6 +1,19 @@
-.textfield {
-    height: 40%;
-    padding: 5px;
+@media (max-width: 1150px){
+    .textfield {
+        width: 170px;
+        height: 16px;
+        padding: 5px;
+    
+        border-radius: 5px;
+    }
+}
 
-    border-radius: 5px;
+@media (min-width: 1150px){
+    .textfield {
+        width: 15%;
+        height: 30%;
+        padding: 5px;
+    
+        border-radius: 5px;
+    }
 }
