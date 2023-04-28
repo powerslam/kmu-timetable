@@ -1,21 +1,10 @@
-@media (max-width: 1150px){
-    .sign {
-        width: 79px;
-        height: 31px;
-        
-        display: inline-block;
+.sign {
+    width: 100%;
+    height: 70%;
     
-        margin: 0px 11px 0px 11px;
-    }
-}
+    font-size:medium;
 
-@media (min-width: 1150px){
-    .sign {
-        width: 7%;
-        height: 60%;
-        
-        display: inline-block;
-    
-        margin: 0% 1% 0% 1%;
-    }
+    display: inline-block;
+
+    margin: 0% 1% 0% 1%;
 }
