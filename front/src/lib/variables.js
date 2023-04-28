@@ -1,5 +1,9 @@
 const null_str = "\u00A0";
 
+export const MAIN = '/';
+export const LOGIN = '/login';
+export const SIGNUP = '/signup';
+
 export const week_data = [null_str, "월", "화", "수", "목", "금", "토", "일"];
 export const time_data = {
     alpha: {
