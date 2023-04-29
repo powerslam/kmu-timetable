@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sz-normal {
+    @apply w-1/6 max-2xl:w-2/5 max-lg:w-1/2 max-sm:w-4/5;
+}
+
+.sz-half {
+    @apply w-1/12 max-2xl:w-1/5 max-lg:w-1/4 max-sm:w-2/5;
+}
+
+.btn {
+    @apply font-bold px-2 py-2 rounded mx-1 my-2;
+}
+
+.btn-green {
+    @apply bg-green-500 text-white;
+}
+
+.btn-green:hover {
+    @apply bg-green-700;
+}
+
+.textfield {
+    @apply px-4 py-2 mx-2 my-2;
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5;
+}

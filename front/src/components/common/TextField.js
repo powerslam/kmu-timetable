@@ -1,9 +1,9 @@
-import styles from '../../styles/Textfield.module.css';
+import '../../styles/index.css';
 
-const TextField = ({id, type, placeholder, onChange, value, addClassName=''}) => {
-    return <input id={id} 
-        className={`${styles.textfield} ${addClassName}`} 
-        type={type} 
+const TextField = ({id, type, placeholder, onChange, value}) => {
+    return <input id={id}
+        type={type}
+        className="textfield sz-normal"
         placeholder={placeholder} 
         onChange={onChange}
         value={value} />

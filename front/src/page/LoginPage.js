@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import TextField from "../components/common/TextField";
-import loginStyles from "../styles/LoginPage.module.css";
-import signBtnStyles from "../styles/SignButton.module.css";
+import "../styles/index.css";
 
-import userIcon from '../resources/user.svg';
-import pwdIcon from '../resources/pwd.svg';
+import TextField from "../components/common/TextField";
 
 import { useNavigate } from "react-router-dom";
 
@@ -46,7 +43,6 @@ const LoginPage = () => {
                     alert('와 로그인 성공!');
                     navigate(MAIN);
                 }
-
             }).catch((err) => {
                 console.log(err);
             });
@@ -54,21 +50,29 @@ const LoginPage = () => {
     }
 
     return (
-        <form className={loginStyles.container} onSubmit={login}>
-            <h1>로그인</h1>
-            <div className={loginStyles.textfield}>
-                <img className={loginStyles.icon} src={userIcon} alt="아이디" />
-                <TextField id="email" type="text" placeholder="아이디" onChange={onChange} value={email} />
+        <form className="w-full text-center items-center" onSubmit={login}>
+            <label className="font-bold text-3xl mx-1 my-1">로그인</label>
+            <div className="flex justify-center w-full">
+                <TextField id="email" type="text"
+                    placeholder="아이디"
+                    onChange={onChange}
+                    value={email}/>
             </div>
 
-            <div className={loginStyles.textfield}>
-                <img className={loginStyles.icon} src={pwdIcon} alt="비밀번호" />
-                <TextField id="pwd" type="password" placeholder="비밀번호" onChange={onChange} value={pwd} />
+            <div className="flex justify-center w-full">
+                <TextField id="pwd" type="password"
+                    placeholder="비밀번호"
+                    onChange={onChange}
+                    value={pwd}/>
             </div>
 
-            <div className={loginStyles.btnfield}>
-                <button className={signBtnStyles.sign}>로그인</button>
-                <button className={signBtnStyles.sign} onClick={() => navigate(SIGNUP)}>회원가입</button>
+            <div className="flex justify-center w-full">
+                <button className="btn btn-green sz-half">로그인</button>
+                <button 
+                    className="btn btn-green sz-half"
+                    onClick={() => navigate(SIGNUP)}>
+                        회원가입
+                </button>
             </div>
         </form>
     );

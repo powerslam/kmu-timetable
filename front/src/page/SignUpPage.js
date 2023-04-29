@@ -58,35 +58,32 @@ const SignUpPage = () => {
 
     return (
         <form className={signUpStyle.container} onSubmit={createUser}>
-            <h1>회원가입</h1>
-            <div className={signUpStyle.textfield}>
-                <TextField id="email" type="text" 
-                    addClassName={signUpStyle.idfield}
-                    placeholder="이메일" 
+            <label className="font-bold text-3xl mx-1 my-1">회원가입</label>
+            <div className="flex justify-center w-full">
+                <TextField id="email" type="text"
+                    placeholder="이메일"
                     onChange={onChange}
-                    value={email} />
+                    value={email}/>
             </div>
-            
-            <div className={signUpStyle.pwdfields}>
-                <div style={{  width: "50%", display: "flex", justifyContent: "left"}}>
-                    <TextField id="pwd" type="text"
-                        addClassName={signUpStyle.pwdfield}
-                        placeholder="비밀번호"
-                        onChange={onChange}
-                        value={pwd} />
-                </div>
 
-                <div style={{width: "50%", display: "flex", justifyContent: "right"}}>
-                    <TextField id="pwdChk" type="text"
-                        addClassName={signUpStyle.pwdfield}
-                        placeholder="비밀번호 확인"
-                        onChange={onChange}
-                        value={pwdChk} />
-                </div>
+            <div className="flex justify-center w-full">
+                <TextField id="pwd" type="password"
+                    placeholder="비밀번호"
+                    onChange={onChange}
+                    value={pwd}/>
             </div>
             
-            <div className={signUpStyle.btnfield}>
-                <button className={signButtonStyle.sign}>회원가입하기</button>
+            <div className="flex justify-center w-full">
+                <TextField id="pwdChk" type="password"
+                    placeholder="비밀번호 확인"
+                    onChange={onChange}
+                    value={pwdChk}/>
+            </div>
+
+            <div className="flex justify-center w-full">
+                <button className="btn btn-green sz-normal">
+                    회원가입하기
+                </button>
             </div>
         </form>
     );
