@@ -1,41 +1,45 @@
-import TimeTableCell from './TimeTableCell';
-import TimeTableColumn from './TimeTableColumn';
+import { useState } from 'react';
 
-import { week_data, time_data, weekly } from '../../lib/variables';
+import "../../styles/index.css"
+import { WEEK_HEAD, TIME_HEAD, weekly } from "../../lib/variables";
 
-// TimeTable 이 956 px 이라 이거보다 작아지면 디자인이 다 틀어짐
-// 맞춤형으로 너비랑 사이즈가 바뀔 필요가 있음
-// 현재 윈도우 사이즈가 956 이하면 % 로 크기를 점점 줄여감
-// 일정 크기 
+import TimeTableCell from "./TimeTableCell";
+import TimeTableColumn from "./TimeTableColumn";
+
+import CardViewList from '../common/CardViewList';
+
 
 const TimeTable = () => {
+    const [ checked, setChecked ] = useState(false);
+
+    const onChange = (e) => {
+        setChecked(!checked);
+    }
+
     return (
-        <table style={{ margin: "auto" }}>
-            <tbody>
-                <tr>
-                    {
-                        week_data.map((v, i) => (
-                            <td><TimeTableCell key={i} text={v} interval={0.8} verticalCenter={true}/></td>
-                        ))
-                    }
-                </tr>
+        <div className="w-full h-full flex flex-col items-center justify-center">
+            <label className="m-4 text-5xl font-bold max-sm:text-4xl">{!checked ? "일 단위 " : "전체 "} 시간표</label>
+            <label className="m-4"><input type="checkbox" checked={checked} onChange={onChange} /> 일 단위로 보기</label>
+            {
+                checked ? 
+                    <div className="div-table ">
+                        <div className="flex flex-row">
+                            {WEEK_HEAD.map((v, i) => (
+                                <TimeTableCell key={i} text={v}/>
+                            ))}
+                        </div>
+                        
+                        <div className="flex flex-row">
+                            <TimeTableColumn data={TIME_HEAD.alpha.daytime}/>
+                            
+                            <TimeTableColumn data={weekly[0].daytime} />
 
-                <tr>
-                    <th><TimeTableColumn data={time_data.alpha} verticalCenter={true}/></th>
-
-                    {
-                        weekly.map((v, i) => (
-                            <td key={i}><TimeTableColumn data={v} /></td>
-                        ))
-                    }
-
-                    <th><TimeTableColumn data={time_data.number} verticalCenter={true} /></th>
-                </tr>
-            </tbody>
-        </table>
+                            <TimeTableColumn data={TIME_HEAD.number.daytime}/>
+                        </div>
+                    </div> : <CardViewList />
+            }
+        </div>
     );
 }
-
-// td 를 TableCell 로 해서 따로 구현하기
 
 export default TimeTable;

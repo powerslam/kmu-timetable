@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cell {
+    @apply border-b border-r border-black;
+    word-wrap: break-all;
+    width: 8rem;
+}
+
+.cell-h1 {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.cell-h2 {
+    height: 6rem;
+    line-height: 6rem;
+}
+
+.cell-h3 {
+    height: 9rem;
+    line-height: 9rem;
+}
+
+.cell-h4 {
+    height: 12rem;
+    line-height: 12rem;
+}
+
+.cell-h5 {
+    height: 15rem;
+    line-height: 15rem;
+}
+
+.cell-h6 {
+    height: 18rem;
+    line-height: 18rem;
+}
+
+.cell-h7 {
+    height: 21rem;
+    line-height: 21rem;
+}
+
+.cell-h8 {
+    height: 20.0rem;
+    line-height: 20.0rem;
+}
+
+.cell-h9 {
+    height: 22.5rem;
+    line-height: 22.5rem;
+}
+
+.cell-h10 {
+    height: 25.0rem;
+    line-height: 25.0rem;
+}
+
+.cell-h11 {
+    height: 27.5rem;
+    line-height: 27.5rem;
+}
+
+.cell-h12 {
+    height: 30.0rem;
+    line-height: 30.0rem;
+}
+
+.cell-h13 {
+    height: 32.5rem;
+    line-height: 32.5rem;
+}
+
+.cell-h14 {
+    height: 35.0rem;
+    line-height: 35.0rem;
+}

@@ -1,22 +1,13 @@
 import TimeTableCell from "./TimeTableCell";
-import styles from '../../styles/TimeTable.module.css';
 
-
-const TimeTableColumn = ({ data, verticalCenter }) => {
+const TimeTableColumn = ({ data }) => {
     const { time, interval } = data;
-
+    console.log(time);
     return (
-        <div className={styles.inline}>
-            {   
-                data ? time.daytime.map((v, i) => {
-                    return <TimeTableCell 
-                        key={i}
-                        text={v}
-                        interval={interval.daytime[i]}
-                        verticalCenter={verticalCenter}
-                    />
-                }) : ''
-            }
+        <div>
+            {time.map((v, i) => (
+                <TimeTableCell key={v} text={v} interval={interval[i]}/>
+            ))}
         </div>
     )
 }
