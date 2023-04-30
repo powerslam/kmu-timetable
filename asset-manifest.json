@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/kmu-timetable/static/css/main.520de51a.css",
-    "main.js": "/kmu-timetable/static/js/main.6e8b1548.js",
+    "main.css": "/kmu-timetable/static/css/main.31f1a7f4.css",
+    "main.js": "/kmu-timetable/static/js/main.2b777a70.js",
     "index.html": "/kmu-timetable/index.html",
-    "main.520de51a.css.map": "/kmu-timetable/static/css/main.520de51a.css.map",
-    "main.6e8b1548.js.map": "/kmu-timetable/static/js/main.6e8b1548.js.map"
+    "static/media/user.svg": "/kmu-timetable/static/media/user.c9f7d89fd54a792a76504b0076cb22c9.svg",
+    "static/media/pwd.svg": "/kmu-timetable/static/media/pwd.5decdfa4740fa6944d7456ab244c34a8.svg",
+    "main.31f1a7f4.css.map": "/kmu-timetable/static/css/main.31f1a7f4.css.map",
+    "main.2b777a70.js.map": "/kmu-timetable/static/js/main.2b777a70.js.map"
   },
   "entrypoints": [
-    "static/css/main.520de51a.css",
-    "static/js/main.6e8b1548.js"
+    "static/css/main.31f1a7f4.css",
+    "static/js/main.2b777a70.js"
   ]
 }
