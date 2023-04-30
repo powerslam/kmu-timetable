@@ -1,13 +1,9 @@
+import axios from 'axios';
+
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-import axios from 'axios';
-
 import TextField from "../components/common/TextField";
-
-import signUpStyle from '../styles/SignUpPage.module.css';
-import signButtonStyle from '../styles/SignButton.module.css';
-
 import { LOGIN } from '../lib/variables';
 
 const SignUpPage = () => {
@@ -57,7 +53,7 @@ const SignUpPage = () => {
     }
 
     return (
-        <form className={signUpStyle.container} onSubmit={createUser}>
+        <form className="w-full text-center items-center" onSubmit={createUser}>
             <label className="font-bold text-3xl mx-1 my-1">회원가입</label>
             <div className="flex justify-center w-full">
                 <TextField id="email" type="text"
