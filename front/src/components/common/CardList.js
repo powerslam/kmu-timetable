@@ -1,7 +1,7 @@
 import "../../styles/CardList.css";
 import { weekly, NULL_STR } from "../../lib/variables";
 
-import StackCard from "./Card";
+import Card from "./Card";
 
 const CardList = () => {
     return (

@@ -6,7 +6,7 @@ import { WEEK_HEAD, TIME_HEAD, weekly } from "../../lib/variables";
 import TimeTableCell from "./TimeTableCell";
 import TimeTableColumn from "./TimeTableColumn";
 
-import CardViewList from '../common/CardViewList';
+import CardList from '../common/CardList';
 
 
 const TimeTable = () => {
@@ -36,7 +36,7 @@ const TimeTable = () => {
 
                             <TimeTableColumn data={TIME_HEAD.number.daytime}/>
                         </div>
-                    </div> : <CardViewList />
+                    </div> : <CardList />
             }
         </div>
     );

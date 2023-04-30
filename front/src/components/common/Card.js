@@ -1,4 +1,4 @@
-import "../../styles/CardViewList.css";
+import "../../styles/CardList.css";
 
 const Card = ({ sbj_nm }) => {
     return (
