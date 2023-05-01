@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { MAIN, LOGIN, TIMETABLE } from "../lib/variables";
+import { MAIN, LOGIN, TRAFFIC, TIMETABLE, EMPTYCLASSROOM } from "../lib/variables";
 
 import { ReactComponent as BusIcon } from "../resources/bus.svg";
 import { ReactComponent as EmptyRoomIcon } from "../resources/emptyroom.svg";
@@ -22,12 +22,12 @@ const NavBar = () => {
                     <ScheduleIcon className="menu-icon"/>
                 </NavLink>
 
-                <NavLink to={ TIMETABLE }>
+                <NavLink to={ EMPTYCLASSROOM }>
                     <span className="menu-text">빈 강의실</span>
                     <EmptyRoomIcon className="menu-icon"/>
                 </NavLink>
 
-                <NavLink to={ TIMETABLE }>
+                <NavLink to={ TRAFFIC }>
                     <span className="menu-text">교통정보</span>
                     <BusIcon className="menu-icon"/>
                 </NavLink>

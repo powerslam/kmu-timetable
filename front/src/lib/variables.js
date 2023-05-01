@@ -3,7 +3,9 @@ export const NULL_STR = "\u00A0";
 export const MAIN = '/';
 export const LOGIN = '/login';
 export const SIGNUP = '/signup';
+export const TRAFFIC = '/main/traffic';
 export const TIMETABLE = '/main/timetable';
+export const EMPTYCLASSROOM = '/main/emptyclassroom';
 
 export const WEEK_HEAD = [NULL_STR, "월", "화", "수", "목", "금", "토", "일", NULL_STR];
 export const TIME_HEAD = {
