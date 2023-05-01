@@ -10,7 +10,7 @@ import TimeTable from './components/TimeTable/TimeTable';
 
 function App() {
   return (
-      <div className="w-full h-[92%] flex items-center">
+      <div className="w-full h-[92%] fixed top-[8%]">
         <Routes>
           <Route exact path={ MAIN } element={<MainPage/>} />
           <Route exact path={ LOGIN } element={<LoginPage/>} />
