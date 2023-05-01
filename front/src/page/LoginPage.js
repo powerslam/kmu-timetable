@@ -50,21 +50,17 @@ const LoginPage = () => {
     }
 
     return (
-        <form className="w-full text-center items-center" onSubmit={login}>
+        <form className="w-full h-full text-center flex flex-col items-center justify-center" onSubmit={login}>
             <label className="font-bold text-3xl mx-1 my-1">로그인</label>
-            <div className="flex justify-center w-full">
-                <TextField id="email" type="text"
+            <TextField id="email" type="text"
                     placeholder="아이디"
                     onChange={onChange}
                     value={email}/>
-            </div>
 
-            <div className="flex justify-center w-full">
-                <TextField id="pwd" type="password"
+            <TextField id="pwd" type="password"
                     placeholder="비밀번호"
                     onChange={onChange}
                     value={pwd}/>
-            </div>
 
             <div className="flex justify-center w-full">
                 <button className="btn btn-green sz-half">로그인</button>

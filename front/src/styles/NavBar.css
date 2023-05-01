@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .menu-body {
-    @apply flex flex-row items-center justify-between bg-[color:var(--blue)] w-full h-[8%] absolute top-0;
+    @apply flex flex-row items-center justify-between bg-[color:var(--blue)] w-full h-[8%] fixed top-0;
 }
 
 .menu-text {
