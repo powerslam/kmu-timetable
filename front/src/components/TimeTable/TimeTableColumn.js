@@ -2,7 +2,7 @@ import TimeTableCell from "./TimeTableCell";
 
 const TimeTableColumn = ({ data }) => {
     const { time, interval } = data;
-    console.log(time);
+    //console.log(time);
     return (
         <div>
             {time.map((v, i) => (
