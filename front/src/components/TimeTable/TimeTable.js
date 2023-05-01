@@ -17,12 +17,11 @@ const TimeTable = () => {
     }
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center">
-            <label className="m-4 text-5xl font-bold max-sm:text-4xl">{!checked ? "일 단위 " : "전체 "} 시간표</label>
+        <div className="w-full flex flex-col items-center justify-center">
             <label className="m-4"><input type="checkbox" checked={checked} onChange={onChange} /> 일 단위로 보기</label>
             {
-                checked ? 
-                    <div className="div-table ">
+                !checked ? 
+                    <div className="div-table">
                         <div className="flex flex-row">
                             {WEEK_HEAD.map((v, i) => (
                                 <TimeTableCell key={i} text={v}/>
