@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --blue: rgb(0, 79, 159);
+    --yellow: rgb(255, 206, 68);
+    --orange: rgb(243, 149, 63);
+    --skyblue: rgb(161, 218, 248);
+    --lightgreen: rgb(149, 194, 61);
+    --green: rgb(0, 164, 112);
+}
+
 .sz-normal {
     @apply w-1/6 max-2xl:w-2/5 max-lg:w-1/2 max-sm:w-4/5;
 }
@@ -15,11 +24,11 @@
 }
 
 .btn-green {
-    @apply bg-green-500 text-white;
+    @apply bg-[color:var(--lightgreen)] text-white;
 }
 
 .btn-green:hover {
-    @apply bg-green-700;
+    @apply bg-[color:var(--green)];
 }
 
 .textfield {
@@ -28,5 +37,5 @@
 }
 
 .div-table {
-    @apply text-center border-t border-l border-black
+    @apply text-center border-t border-l border-black top-[30%];
 }

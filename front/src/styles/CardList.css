@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .CardList {
-    @apply text-center border border-black overflow-x-scroll;
-    @apply w-2/5 h-2/3 max-lg:w-4/5;
+    @apply text-center border border-black overflow-y-scroll;
+    @apply w-2/5 h-full max-lg:w-4/5;
 }
 
 .Card {
     @apply inline-flex flex-col justify-center rounded overflow-hidden shadow-lg shadow-slate-400 my-5 border-4;
-    @apply hover:bg-slate-100 border-green-400 hover:border-green-600;
+    @apply hover:bg-slate-100 border-[color:var(--lightgreen)] hover:border-[color:var(--green)];
     @apply w-5/6 h-48;
 }

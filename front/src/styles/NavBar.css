@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-body {
+    @apply flex flex-row items-center justify-between bg-[color:var(--blue)] w-full h-[8%] absolute top-0;
+}
+
+.menu-text {
+    @apply mr-6 text-2xl font-extrabold text-[color:var(--skyblue)] hover:text-white max-md:hidden;
+}
+
+.menu-icon {
+    @apply mr-4 fill-[color:var(--skyblue)] hover:fill-white md:hidden max-[380px]:w-7 max-[380px]:h-7 max-[380px]:mr-3;
+}
