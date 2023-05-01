@@ -4,14 +4,14 @@ import App from './App';
 
 import './styles/index.css';
 
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import NavBar from './components/NavBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <HashRouter>
       <NavBar />
       <App />
-  </BrowserRouter>
+  </HashRouter>
 );

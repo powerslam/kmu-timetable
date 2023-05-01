@@ -1,6 +1,6 @@
 export const NULL_STR = "\u00A0";
 
-export const MAIN = '/main';
+export const MAIN = '/';
 export const LOGIN = '/login';
 export const SIGNUP = '/signup';
 export const TIMETABLE = '/main/timetable';
