@@ -5,13 +5,17 @@ import App from './App';
 import './styles/index.css';
 
 import { HashRouter } from 'react-router-dom';
+
 import NavBar from './components/NavBar';
+import { ServiceProvider } from './lib/ServiceContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <HashRouter>
-      <NavBar />
-      <App />
-  </HashRouter>
+  <ServiceProvider>
+    <HashRouter>
+        <NavBar />
+          <App />
+    </HashRouter>
+  </ServiceProvider>  
 );

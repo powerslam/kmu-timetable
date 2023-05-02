@@ -6,13 +6,14 @@ import "../styles/index.css";
 import TextField from "../components/common/TextField";
 
 import { useNavigate } from "react-router-dom";
-
-import { SIGNUP, MAIN } from '../lib/variables';
+import { SIGNUP_PATH,  MAIN_PATH } from '../lib/variables';
+import { LOGIN, useServiceDispatch } from '../lib/ServiceContext';
 
 const LoginPage = () => {
     const [ email, setEmail ] = useState("");
     const [ pwd, setPwd ] = useState("");
     const navigate = useNavigate();
+    const dispatch = useServiceDispatch();
 
     const onChange = (e) => {
         switch(e.target.id){
@@ -40,8 +41,14 @@ const LoginPage = () => {
                 if(res.data === 'fail') {
                     alert('아이디가 존재하지 않거나 비밀번호가 틀렸습니다.');
                 } else {
-                    alert('와 로그인 성공!');
-                    navigate(MAIN);
+                    dispatch({
+                        type: LOGIN,
+                        userData: {
+                            id: email,
+                            pwd: pwd,
+                        }
+                    })
+                    navigate(MAIN_PATH);
                 }
             }).catch((err) => {
                 console.log(err);
@@ -66,7 +73,7 @@ const LoginPage = () => {
                 <button className="btn btn-green sz-half">로그인</button>
                 <button 
                     className="btn btn-green sz-half"
-                    onClick={() => navigate(SIGNUP)}>
+                    onClick={() => navigate(SIGNUP_PATH)}>
                         회원가입
                 </button>
             </div>
