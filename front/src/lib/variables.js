@@ -1,11 +1,11 @@
 export const NULL_STR = "\u00A0";
 
-export const MAIN = '/';
-export const LOGIN = '/login';
-export const SIGNUP = '/signup';
-export const TRAFFIC = '/main/traffic';
-export const TIMETABLE = '/main/timetable';
-export const EMPTYCLASSROOM = '/main/emptyclassroom';
+export const MAIN_PATH = '/';
+export const LOGIN_PATH = '/login';
+export const SIGNUP_PATH = '/signup';
+export const TRAFFIC_PATH = '/main/traffic';
+export const TIMETABLE_PATH = '/main/timetable';
+export const EMPTYCLASSROOM_PATH = '/main/emptyclassroom';
 
 export const WEEK_HEAD = [NULL_STR, "월", "화", "수", "목", "금", "토", "일", NULL_STR];
 export const TIME_HEAD = {

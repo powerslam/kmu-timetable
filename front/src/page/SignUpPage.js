@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import TextField from "../components/common/TextField";
-import { LOGIN } from '../lib/variables';
+import { LOGIN_PATH } from '../lib/variables';
 
 const SignUpPage = () => {
     const [email, setEmail] = useState("");
@@ -27,7 +27,7 @@ const SignUpPage = () => {
                 if(res.data === 'DUP') alert('이미 등록된 회원입니다.');
                 else {
                     alert('회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.');
-                    navigate(LOGIN);
+                    navigate(LOGIN_PATH);
                 }
             }).catch((err) => {
                 console.log(err);
