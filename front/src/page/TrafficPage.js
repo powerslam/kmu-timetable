@@ -1,10 +1,10 @@
 import Card from "../components/common/Card";
 
-import { weekly, NULL_STR } from "../lib/variables";
+import { NULL_STR } from "../lib/variables";
 
 const TrafficPage = () => {
     return (
-        <div className="w-full h-fit flex flex-col items-center justify-center mt-4">
+        <div className="page">
             {Array(4).fill(1).map((v, i) => {
                 if(v === NULL_STR) return null;
                 return (

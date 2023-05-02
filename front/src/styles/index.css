@@ -39,3 +39,7 @@
 .div-table {
     @apply text-center border-t border-l border-black top-[30%];
 }
+
+.page {
+    @apply w-full h-fit flex flex-col items-center justify-center mt-4;
+}
