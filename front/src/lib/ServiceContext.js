@@ -2,11 +2,15 @@ import { createContext, useContext, useReducer } from "react"
 
 const initialState = {
     isLogin: !!localStorage.getItem('id'),
+    isMenuOpen: false,
 };
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const IS_LOGIN = "IS_LOGIN";
+
+export const MENU_OPEN = "MENU_OPEN";
+export const MENU_CLOSE = "MENU_CLOSE";
 
 const reducer = (state, action) => {
     const { type, userData } = action;
@@ -21,7 +25,13 @@ const reducer = (state, action) => {
         case LOGOUT:
             localStorage.clear();
             return { isLogin: false };
-    
+
+        case MENU_OPEN:
+            return { ...state, isMenuOpen: true };
+        
+        case MENU_CLOSE:
+            return { ...state, isMenuOpen: false };
+        
         default: return state;
     }
 }
