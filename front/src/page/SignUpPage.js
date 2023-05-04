@@ -49,6 +49,7 @@ const SignUpPage = () => {
                 setPWDChk(e.target.value);
                 break;
             
+            default: break;
         }
     }
 

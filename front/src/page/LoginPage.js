@@ -24,6 +24,8 @@ const LoginPage = () => {
             case "pwd": 
                 setPwd(e.target.value);
                 break;
+            
+            default: break;
         }
     }
 
