@@ -4,6 +4,7 @@
 
 :root {
     --blue: rgb(0, 79, 159);
+    --lightblue: rgb(0, 102, 205);
     --yellow: rgb(255, 206, 68);
     --orange: rgb(243, 149, 63);
     --skyblue: rgb(161, 218, 248);
@@ -42,19 +43,4 @@
 
 .page {
     @apply w-full h-fit flex flex-col items-center justify-center mt-4;
-}
-
-.Search-Menu {
-    @apply w-full h-2/5 fixed bottom-0 left-0 bg-white border-2 border-[color:var(--blue)];
-    @apply flex flex-col items-center overflow-auto;
-}
-
-.Slide-Menu-Hide {
-    @apply transition duration-500 ease-in-out transform translate-y-full;
-}
-
-.Search-Menu-Item {
-    @apply w-full py-4 border-b-2 border-gray-500;
-
-    @apply hover:bg-slate-300;
 }
