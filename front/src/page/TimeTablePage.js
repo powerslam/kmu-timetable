@@ -6,17 +6,10 @@ import TimeTable from "../components/TimeTable/TimeTable";
 import SearchMenu from "../components/SearchMenu/SearchMenu";
 
 import { weekly, NULL_STR } from "../lib/variables";
-import { MENU_OPEN, MENU_CLOSE, useServiceDispatch, useServiceState } from "../lib/ServiceContext";
 
 const TimeTablePage = () => {
     const [ checked, setChecked ] = useState(false);
-    
-    const state = useServiceState();
-    const dispatch = useServiceDispatch();
-    
-    const getClass = () => {
-        dispatch({ type: !state.isMenuOpen ? MENU_OPEN : MENU_CLOSE });
-    }
+    const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 
     return <AuthPage>
         <div className="flex flex-row justify-between w-full">
@@ -25,7 +18,7 @@ const TimeTablePage = () => {
                 <input className="w-5 h-5" type="checkbox" checked={checked} onChange={() => setChecked(p => !p)} />
             </label>
 
-            <button className="btn btn-green" onClick={getClass}>과목 추가하기</button>
+            <button className="btn btn-green" onClick={() => setIsMenuOpen(p => !p)}>과목 추가하기</button>
         </div>
         {!checked ? <TimeTable /> :
             weekly[0].daytime.time.map((v, i) => {
@@ -38,9 +31,7 @@ const TimeTablePage = () => {
             })
         }
 
-        {state.isMenuOpen && (
-            <SearchMenu />
-        )}
+        { !isMenuOpen ? null : <SearchMenu onClose={() => setIsMenuOpen(false)} /> }
     </AuthPage>
 };
 
