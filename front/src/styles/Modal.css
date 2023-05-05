@@ -1,0 +1,27 @@
+.Container {
+    @apply h-fit fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50;
+    @apply rounded-xl p-4 shadow-lg;
+    @apply border-2 border-[color:var(--blue)] bg-white;
+}
+
+.SubmitBtn {
+    @apply text-white font-bold py-1 px-4 rounded mr-2;
+    @apply bg-[color:var(--blue)];
+}
+
+.SubmitBtn:hover {
+    @apply bg-[color:var(--lightblue)];
+}
+
+.CancelBtn {
+    @apply border border-gray-500 text-gray-500 font-bold py-1 px-4 rounded;
+}
+
+.CancelBtn:hover {
+    @apply border-gray-700 text-gray-700;
+}
+
+.InputData-Stroke {
+    @apply bg-gray-200 rounded-full px-2 py-1 ml-1 text-sm font-semibold text-gray-700 max-md:mb-2;
+}
+
