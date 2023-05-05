@@ -45,7 +45,7 @@ const LoginPage = () => {
                 } else {
                     dispatch({
                         type: LOGIN,
-                        userData: {
+                        payload: {
                             id: email,
                             pwd: pwd,
                         }
@@ -62,11 +62,13 @@ const LoginPage = () => {
         <form className="w-full h-full text-center flex flex-col items-center justify-center" onSubmit={login}>
             <label className="font-bold text-3xl mx-1 my-1">로그인</label>
             <TextField id="email" type="text"
+                    addStyle="sz-normal"
                     placeholder="아이디"
                     onChange={onChange}
                     value={email}/>
 
             <TextField id="pwd" type="password"
+                    addStyle="sz-normal"
                     placeholder="비밀번호"
                     onChange={onChange}
                     value={pwd}/>

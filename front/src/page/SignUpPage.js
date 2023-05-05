@@ -58,6 +58,7 @@ const SignUpPage = () => {
             <label className="font-bold text-3xl mx-1 my-1">회원가입</label>
             <div className="flex justify-center w-full">
                 <TextField id="email" type="text"
+                    addStyle="sz-normal"
                     placeholder="이메일"
                     onChange={onChange}
                     value={email}/>
@@ -65,6 +66,7 @@ const SignUpPage = () => {
 
             <div className="flex justify-center w-full">
                 <TextField id="pwd" type="password"
+                    addStyle="sz-normal"
                     placeholder="비밀번호"
                     onChange={onChange}
                     value={pwd}/>
@@ -72,6 +74,7 @@ const SignUpPage = () => {
             
             <div className="flex justify-center w-full">
                 <TextField id="pwdChk" type="password"
+                    addStyle="sz-normal"
                     placeholder="비밀번호 확인"
                     onChange={onChange}
                     value={pwdChk}/>
