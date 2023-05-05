@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .menu-body {
     @apply flex flex-row items-center justify-between bg-[color:var(--blue)] w-full h-[8%] fixed top-0;
 }
