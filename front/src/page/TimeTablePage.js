@@ -1,36 +1,33 @@
-import { useState } from "react";
+import axios from 'axios';
 
-import Card from '../components/common/Card';
+import { useState, useEffect } from "react";
+
 import AuthPage from "../components/common/AuthPage";
 import TimeTable from "../components/TimeTable/TimeTable";
 import SearchMenu from "../components/SearchMenu/SearchMenu";
 
-import { weekly, NULL_STR } from "../lib/variables";
+import { INITAILIZE_TIMETABLE, useServiceDispatch } from '../lib/ServiceContext';
 
 const TimeTablePage = () => {
-    const [ checked, setChecked ] = useState(false);
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+    const dispatch = useServiceDispatch();
+    
+    useEffect(() => {
+        const id = localStorage.getItem("id");
+        (async () => {
+            await axios.get(`https://kmu-timtable-ivort.run.goorm.site/timetable/${id}`).then(res => {
+                dispatch({ type: INITAILIZE_TIMETABLE, payload: res.data });
+            }).catch(err => console.error(err));
+        })();
+    }, []);
 
     return <AuthPage>
-        <div className="flex flex-row justify-between w-full">
-            <label className="m-4 text-2xl flex items-center justify-center w-2/5 max-lg:w-4/5">
-                일 단위로 보기&nbsp;
-                <input className="w-5 h-5" type="checkbox" checked={checked} onChange={() => setChecked(p => !p)} />
-            </label>
-
+        <div className="flex flex-row w-2/3 lg:justify-end max-lg:justify-center">
             <button className="btn btn-green" onClick={() => setIsMenuOpen(p => !p)}>과목 추가하기</button>
         </div>
-        {!checked ? <TimeTable /> :
-            weekly[0].daytime.time.map((v, i) => {
-                if(v === NULL_STR) return null;
-                return (
-                    <Card key={i}>
-                        <div>{v}</div>
-                    </Card>
-                );
-            })
-        }
 
+        <TimeTable />
+        
         { !isMenuOpen ? null : <SearchMenu onClose={() => setIsMenuOpen(false)} /> }
     </AuthPage>
 };
