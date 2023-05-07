@@ -9,9 +9,11 @@ import TrafficPage from './page/TrafficPage';
 import TimeTablePage from './page/TimeTablePage';
 import EmptyClassRoomPage from './page/EmptyClassRoomPage';
 
+import './styles/index.css';
+
 function App() {
   return (
-      <div className="w-full h-[92%] fixed top-[8%] overflow-auto">
+      <div className="main-container">
         <Routes>
           <Route path={ MAIN_PATH } element={<MainPage />} />
           <Route path={ LOGIN_PATH } element={<LoginPage />} />

@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html {
+    font-size: 100%;
+}
 
 :root {
     --blue: rgb(0, 79, 159);
@@ -10,6 +10,22 @@
     --skyblue: rgb(161, 218, 248);
     --lightgreen: rgb(149, 194, 61);
     --green: rgb(0, 164, 112);
+    
+    --pastel_yellow: rgb(252, 255, 176);
+    --pastel_purple: rgb(202, 166, 254);
+    --pastel_pink: rgb(252, 198, 247);
+    --pastel_green: rgb(175, 255, 186);
+    --pastel_lightgreen: rgb(226, 255, 175);
+}
+
+.main-container {
+    width: 100vw;
+    height: 92.5rem;
+
+    position: fixed;
+    margin-top: 8vw;
+
+    overflow: auto;
 }
 
 .sz-normal {

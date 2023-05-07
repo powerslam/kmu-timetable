@@ -1,11 +1,106 @@
 .menu-body {
-    @apply flex flex-row items-center justify-between bg-[color:var(--blue)] w-full h-[8%] fixed top-0;
+    width: 100vw;
+    height: 7.5rem;
+    
+    background-color: var(--blue);
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    position: fixed;
+    top: 0%; left: 0%;
 }
 
+.menu-title-container {
+    display: flex;
+    flex-shrink: 0;
+    color: white;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-title {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    font-size: 3rem;
+}
+
+.menu-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* max-md부터 hidden */
 .menu-text {
-    @apply mr-6 text-2xl font-extrabold text-[color:var(--skyblue)] hover:text-white max-md:hidden;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--skyblue);
+
+    margin-right: 1rem;
 }
 
-.menu-icon {
-    @apply mr-4 fill-[color:var(--skyblue)] hover:fill-white md:hidden max-[380px]:w-7 max-[380px]:h-7 max-[380px]:mr-3;
+.menu-text:hover {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-title-container {
+        display: flex;
+        flex-shrink: 0;
+        color: white;
+    
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .menu-title {
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        font-size: 2rem;
+    }
+    
+    .menu-text {
+        display: none;
+    }
+
+    .menu-icon {
+        margin-right: 1rem;
+        fill: var(--skyblue);
+    }
+
+    .menu-icon:hover {
+        fill: white;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .menu-title {
+        font-size: 1rem;
+    }
+
+    .menu-icon{
+        width: 1rem;
+        height: 1rem;
+        margin-right: 3px;    
+    }
+
+    .menu-icon:hover {
+        fill: white;
+    }
 }

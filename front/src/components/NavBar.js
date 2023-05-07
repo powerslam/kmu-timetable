@@ -16,24 +16,24 @@ const NavBar = () => {
 
     return (
         <nav className="menu-body">
-            <div className="flex flex-shrink-0 text-white mx-6 max-md:mx-4">
-                <NavLink to={ MAIN_PATH }>
-                    <span className="font-semibold tracking-tight text-5xl max-md:text-3xl max-[380px]:text-2xl">K-Time</span>
+            <div className="menu-title-container">
+                <NavLink className="menu-title link" to={ MAIN_PATH }>
+                    <span>K-Time</span>
                 </NavLink>
             </div>
 
-            <div className="flex flex-row items-center">
-                <NavLink to={ TIMETABLE_PATH }>
+            <div className="menu-text-container">
+                <NavLink className="link" to={ TIMETABLE_PATH }>
                     <span className="menu-text">시간표</span>
                     <ScheduleIcon className="menu-icon"/>
                 </NavLink>
 
-                <NavLink to={ EMPTYCLASSROOM_PATH }>
+                <NavLink className="link" to={ EMPTYCLASSROOM_PATH }>
                     <span className="menu-text">빈 강의실</span>
                     <EmptyRoomIcon className="menu-icon"/>
                 </NavLink>
 
-                <NavLink to={ TRAFFIC_PATH }>
+                <NavLink className="link" to={ TRAFFIC_PATH }>
                     <span className="menu-text">교통정보</span>
                     <BusIcon className="menu-icon"/>
                 </NavLink>
