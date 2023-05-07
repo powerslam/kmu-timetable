@@ -18,7 +18,7 @@
 
 .MenuItem {
     @apply hover:bg-slate-300;
-    @apply flex flex-row;
+    @apply flex flex-row items-center justify-center;
 }
 
 .MenuHeader {
@@ -43,32 +43,36 @@
     @apply text-white bg-[color:var(--orange)] hover:bg-[color:var(--yellow)];
 }
 
-.Grade {
-    @apply w-[7%];
+.DeptCD {
+    @apply w-[17%] whitespace-pre-line;
 }
 
-.Subject {
-    @apply w-[15%];
-}
-
-.Division {
+.CategoryCD {
     @apply w-[10%];
 }
 
+.Grade {
+    @apply w-[5%];
+}
+
+.Subject {
+    @apply w-[18%] whitespace-pre-line;
+}
+
+.Division {
+    @apply w-[6%];
+}
+
 .Credit {
-    @apply w-[7%];
+    @apply w-[4%];
 }
 
 .Professor {
-    @apply w-[13%];
+    @apply w-[7%];
 }
 
 .Time {
-    @apply w-[16%];
-}
-
-.Week {
-    @apply w-[7%];
+    @apply w-[20%] whitespace-pre-line;
 }
 
 .Remark {
