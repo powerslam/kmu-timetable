@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react"
 
 export const SUBJECT_NM = "SUBJECT_NM";
-export const GRADE = "GRADE";
+export const PROFESSOR = "PROFESSOR";
 export const WEEK = "WEEK";
 
 const initialState = {
@@ -10,9 +10,12 @@ const initialState = {
 
     filterData: {
         [SUBJECT_NM]: "",
-        [GRADE]: [],
+        [PROFESSOR]: "",
         [WEEK]: []
-    }
+    },
+
+    tmpSelectSbjs: null,
+    selectSbjs: [],
 };
 
 export const LOGIN = "LOGIN";
@@ -21,6 +24,11 @@ export const IS_LOGIN = "IS_LOGIN";
 
 export const UPDATE_MENU_ITEMS = "UPDATE_MENU_ITEMS";
 export const INPUT_SUBJECT_NAME = "INPUT_SUBJECT_NAME";
+
+export const TMP_SELECT_SUBJECT = "TMP_SELECT_SUBJECT";
+export const INITAILIZE_TIMETABLE = "INITAILIZE_TIMETABLE";
+export const INSERT_SBJ_TO_TIMETABLE = "INSERT_SBJ_TO_TIMETABLE";
+export const DELETE_SBJ_FROM_TIMETABLE = "DELETE_SBJ_FROM_TIMETABLE";
 
 const reducer = (state, action) => {
     const { type, payload } = action;
@@ -51,12 +59,12 @@ const reducer = (state, action) => {
                 }
             };
 
-        case GRADE:
+        case PROFESSOR:
             return {
                 ...state,
                 filterData: {
                     ...state.filterData,
-                    [GRADE]: payload,
+                    [PROFESSOR]: payload,
                 }
             };
 
@@ -67,6 +75,35 @@ const reducer = (state, action) => {
                     ...state.filterData,
                     [WEEK]: payload,
                 }
+            };
+        
+        case TMP_SELECT_SUBJECT:
+            return {
+                ...state,
+                tmpSelectSbjs: payload,
+            };
+        
+        case INITAILIZE_TIMETABLE:
+            return {
+                ...state,
+                selectSbjs: payload,
+            };
+
+        case INSERT_SBJ_TO_TIMETABLE:
+            return {
+                ...state,
+                tmpSelectSbjs: null,
+                selectSbjs: [
+                    ...state.selectSbjs,
+                    state.tmpSelectSbjs
+                ],
+            };
+
+        case DELETE_SBJ_FROM_TIMETABLE:
+            return {
+                ...state,
+                tmpSelectSbjs: null,
+                selectSbjs: state.selectSbjs.filter(v => v !== payload),
             };
         
         default: return state;
