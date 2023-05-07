@@ -2,6 +2,7 @@ import Card from "../components/common/Card";
 
 import { NULL_STR } from "../lib/variables";
 
+// 아코디언
 const TrafficPage = () => {
     return (
         <div className="page">

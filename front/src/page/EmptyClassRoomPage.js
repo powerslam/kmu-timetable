@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
+// 수업 없으면 없다고 알려주기
 const EmptyClassRoomPage = () => {
     const [floorList, setFloorList] = useState(null);
     const [buildingList, setBuildingList] = useState(null);
@@ -52,12 +53,15 @@ const EmptyClassRoomPage = () => {
             const data = await axios.get(`https://kmu-timtable-ivort.run.goorm.site/building/?bdg=${bdg}&flr=${flr}`)
                 .then(res => res.data)
                 .then(data => {
+                    console.log(data);
+
                     const rooms = {};
 
                     data.forEach(({ CLASSROOM_NM, ...classInfo }) => {
                         if(!rooms.hasOwnProperty(CLASSROOM_NM)) rooms[CLASSROOM_NM] = [];
                         rooms[CLASSROOM_NM].push(classInfo);
                     });
+
                     console.log(rooms);
                     return rooms;
                 })
