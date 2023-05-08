@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import "../styles/index.css";
+import "../styles/LoginPage.css";
 
 import TextField from "../components/common/TextField";
 
@@ -59,8 +59,8 @@ const LoginPage = () => {
     }
 
     return (
-        <form className="w-full h-full text-center flex flex-col items-center justify-center" onSubmit={login}>
-            <label className="font-bold text-3xl mx-1 my-1">로그인</label>
+        <form className="Page" onSubmit={login}>
+            <label className="Login-Title">로그인</label>
             <TextField id="email" type="text"
                     addStyle="sz-normal"
                     placeholder="아이디"
@@ -73,10 +73,10 @@ const LoginPage = () => {
                     onChange={onChange}
                     value={pwd}/>
 
-            <div className="flex justify-center w-full">
-                <button className="btn btn-green sz-half">로그인</button>
+            <div className="Login-Btn-Container">
+                <button className="btn bg-lightgreen sz-half">로그인</button>
                 <button 
-                    className="btn btn-green sz-half"
+                    className="btn bg-lightgreen Login-Btn sz-half"
                     onClick={() => navigate(SIGNUP_PATH)}>
                         회원가입
                 </button>
