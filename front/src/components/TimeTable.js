@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 import '../styles/TimeTable.css';
+import '../styles/GridArrange.css';
 
 const TimeTable = () => {
     const state = useServiceState();
@@ -69,41 +70,10 @@ const TimeTable = () => {
     }
 
     return <div className="Grid-Container Grid-Layout">
-        {Array(18 * 7).fill(1).map((_, rc) => {
-            return <div key={rc} 
-                className="Common Grid-Item"
-                style={{
-                    gridColumnStart: rc % 7 + 2, // 2 ~ 8
-                    gridRowStart: parseInt(rc / 7) + 2,
-                }} />
-        })}
-
-        {WEEK_HEAD.map((v, i) => {
-            return <div key={v+i} 
-                className="Common Grid-Item"
-                style={{
-                    gridColumnStart: i + 1,
-                    gridRowStart: 1,
-                }}>{v}</div>
-        })}
-
-        {TIME_HEAD.alpha.daytime.time.map((v, i) => {
-            return <div key={v} 
-                className="Common Grid-Item"
-                style={{
-                    gridColumnStart: 1,
-                    gridRowStart: i + 2,
-                }}>{v}</div>
-        })}
-
-        {TIME_HEAD.number.daytime.time.map((v, i) => {
-            return <div key={v} 
-                className="Common Grid-Item"
-                style={{
-                    gridColumnStart: 9,
-                    gridRowStart: i + 2,
-                }}>{v}</div>
-        })}
+        {Array(18 * 7).fill(1).map((_, rc) => <div key={rc} className={`Common Grid-Item Grid-${rc % 7 + 2}-${parseInt(rc / 7) + 2}`}/>)}
+        {WEEK_HEAD.map((v, i) => <div key={v + i} className={`Common Grid-Item Grid-${i + 1}-${1}`}>{v}</div>)}
+        {TIME_HEAD.alpha.daytime.time.map((v, i) => <div key={v} className={`Common Grid-Item Grid-${1}-${i + 2}`}>{v}</div>)}
+        {TIME_HEAD.number.daytime.time.map((v, i) => <div key={v} className={`Common Grid-Item Grid-${9}-${i + 2}`}>{v}</div>)}
 
         { !state.selectSbjs ? null : (
             state.selectSbjs.map(info => {
@@ -117,16 +87,9 @@ const TimeTable = () => {
                     // 그리고 30분이 있으면 한 칸 아래로 내려 가야 함
                     const rowEnd = (parseInt(END[i] / 100) - 8) * 2 + (END[i] % 100 === 30 ? 1 : 0);
 
-                    return <div key={info.SUBJECT_CD + columnStart[i]} 
-                        style={{
-                            position: "relative",
-                            display: "flex",
-                            flexDirection: "column",
-                            border: "1px solid black",
-                            backgroundColor: `var(${info.BG_COLOR})`,
-                            gridColumnStart: parseInt(columnStart[i]) + 1,
-                            gridRowStart: rowStart,
-                            gridRowEnd: rowEnd}}>
+                    return <div key={info.SUBJECT_CD + columnStart[i]}
+                        className={`SelectSubject Grid-${parseInt(columnStart[i]) + 1}-${rowStart}`}
+                        style={{backgroundColor: `var(${info.BG_COLOR})`, gridRowEnd: rowEnd}}>
                         <div style={{height: "20px"}}>
                             <button style={{
                                 backgroundColor: "transparent",

@@ -26,62 +26,96 @@
     grid-template-rows: repeat(19, 3rem);
 }
 
-@media (max-width: 750px) {
+.SelectSubject {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    font-size: 1rem;
+    width: calc(5rem - 2px);
+
+    border: 1px solid black;
+}
+
+@media (max-width: 768px) {
     .Grid-Layout {
-        grid-template-columns: repeat(9, 4rem);
+        grid-template-columns: repeat(8, 4rem);
         grid-template-rows: repeat(19, 2rem);
     }
+    
     .Grid-Item {
         font-size: 1rem;
         font-weight: 600;
         line-height: 2rem;
     }
+
+    .SelectSubject {
+        font-size: 1rem;
+        width: calc(4rem - 2px);
+    }
 }
 
 @media (max-width: 640px) {
     .Grid-Layout {
-        grid-template-columns: repeat(9, 3.5rem);
+        grid-template-columns: repeat(8, 3.5rem);
         grid-template-rows: repeat(19, 2rem);
     }
+    
     .Grid-Item {
         font-size: 0.8rem;
         font-weight: 600;
         line-height: 2rem;
+    }
+    
+    .SelectSubject {
+        font-size: 0.8rem;
+        width: calc(3.5rem - 2px);
     }
 }
 
 @media (max-width: 546px) {
     .Grid-Layout {
-        grid-template-columns: repeat(9, 3rem);
+        grid-template-columns: repeat(8, 3rem);
         grid-template-rows: repeat(19, 2rem);
     }
-    .Grid-Item {
-        font-size: 0.8rem;
-        font-weight: 600;
-        line-height: 2rem;
+    
+    .SelectSubject {
+        width: calc(3rem - 2px);
     }
 }
 
 @media (max-width: 446px) {
     .Grid-Layout {
-        grid-template-columns: repeat(9, 2.5rem);
-        grid-template-rows: repeat(19, 1.8rem);
+        grid-template-columns: repeat(8, 2.5rem);
+        grid-template-rows: repeat(19, 2rem);
     }
+
     .Grid-Item {
         font-size: 0.8rem;
         font-weight: 600;
         line-height: 1.8rem;
     }
+    
+    .SelectSubject {
+        font-size: 0.8rem;
+        width: calc(2.5rem - 2px);
+    }
 }
 
 @media (max-width: 400px) {
     .Grid-Layout {
-        grid-template-columns: repeat(9, 1.8rem);
-        grid-template-rows: repeat(19, 1.8rem);
+        grid-template-columns: repeat(8, 2rem);
+        grid-template-rows: repeat(19, 2rem);
     }
+
     .Grid-Item {
         font-size: 0.5rem;
         font-weight: 600;
         line-height: 1.8rem;
+    }
+    
+    .SelectSubject {
+        font-size: 0.5rem;
+        width: calc(2rem - 2px);
     }
 }
