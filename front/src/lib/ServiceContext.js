@@ -18,6 +18,8 @@ const initialState = {
     selectSbjs: [],
 };
 
+export const INITIAL_DATA = "INITIAL_DATA";
+
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const IS_LOGIN = "IS_LOGIN";
@@ -34,15 +36,24 @@ const reducer = (state, action) => {
     const { type, payload } = action;
 
     switch(type) {
+        case INITIAL_DATA:
+            return initialState;
+
         case LOGIN: 
             localStorage.clear();
             localStorage.setItem('id', payload.id);
             localStorage.setItem('pwd', payload.pwd);
-            return { isLogin: true };
+            return { 
+                ...state,
+                isLogin: true
+            };
                 
         case LOGOUT:
             localStorage.clear();
-            return { isLogin: false };
+            return { 
+                ...state,
+                isLogin: false
+            };
 
         case UPDATE_MENU_ITEMS:
             return {
