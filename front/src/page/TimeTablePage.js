@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 
 import AuthPage from "../components/common/AuthPage";
-import TimeTable from "../components/TimeTable/TimeTable";
+import TimeTable from "../components/TimeTable";
 import SearchMenu from "../components/SearchMenu/SearchMenu";
 
 import { INITAILIZE_TIMETABLE, useServiceDispatch } from '../lib/ServiceContext';
@@ -22,10 +22,8 @@ const TimeTablePage = () => {
     }, []);
 
     return <AuthPage>
-        <div className="flex flex-row w-2/3 lg:justify-end max-lg:justify-center">
-            <button className="btn btn-green" onClick={() => setIsMenuOpen(p => !p)}>과목 추가하기</button>
-        </div>
-
+        <button className="btn bg-lightgreen" onClick={() => setIsMenuOpen(p => !p)}>과목 추가하기</button>
+    
         <TimeTable />
         
         { !isMenuOpen ? null : <SearchMenu onClose={() => setIsMenuOpen(false)} /> }
