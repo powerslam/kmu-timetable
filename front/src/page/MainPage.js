@@ -77,18 +77,38 @@ const MainPage = () => {
 
     return !isLogin ? null : (
         <div className="MainPage Scroll">
-            <div className="UserInfo-Container">
-                <span className="UserIdText">{userId}</span>
-                    
+            <div className="UserInfo-Container Content-Container-Size">
                 <div className="UserManagementBtn-Container">
-                    <button className="btn bg-lightgreen">
-                        회원관리
-                    </button>
-                    
+                    <span className="UserIdText">{userId}</span>
                     <button className="btn bg-lightgreen" onClick={onLogout}>
                         로그아웃
                     </button>
                 </div>
+
+                <table>
+                    <caption className="Link-Title">국민대 서비스 바로가기</caption>
+                    <tbody><tr><td><button 
+                        className="btn bg-green Link-Btn"
+                        onClick={() => window.open('https://portal.kookmin.ac.kr/por/mn', '_blank')}>
+                            온국민
+                    </button></td>
+                    <td><button 
+                        className="btn bg-green Link-Btn"
+                        onClick={() => window.open('https://ecampus.kookmin.ac.kr/login/index.php', '_blank')}>
+                            eCampus
+                    </button></td></tr>
+                    
+                    <tr><td><button 
+                        className="btn bg-green Link-Btn"
+                        onClick={() => window.open('https://www.kookmin.ac.kr/user/unIntr/campusGuide/bukakCampusGuide/index.do', '_blank')}>
+                            국민대 근처 교통정보
+                    </button></td>
+                        <td><button 
+                        className="btn bg-green Link-Btn"
+                        onClick={() => window.open('https://ecampus.kookmin.ac.kr/login/index.php', '_blank')}>
+                            성곡도서관
+                    </button></td></tr></tbody>
+                </table>
             </div>
 
             <div className="TodayClass">

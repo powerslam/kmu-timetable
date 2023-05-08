@@ -17,7 +17,8 @@
 
     align-items: center;
 
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 
     border: 2px solid var(--blue);
     border-radius: 0.5rem;
@@ -46,6 +47,8 @@
     width: 100%;
 
     position: relative;
+
+    margin-bottom: 2rem;
 }
 
 .TodayClass-CardList {
@@ -99,6 +102,18 @@
     width: 80%;
 }
 
+.Link-Title {
+    font-size: 1.3rem;
+
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.Link-Btn {
+    width: 7rem;
+    height: 3rem;
+}
+
 @media (min-width: 1000px) {
     .Content-Container-Size {
         width: 40%;
@@ -109,5 +124,13 @@
     .Content-Container-Size {
         width: 90%;
     }
-    
+
+    .Link-Title {
+        font-size: 1.1rem;
+    }
+
+    .Link-Btn {
+        width: 5rem;
+        font-size: 0.7rem;
+    }
 }
