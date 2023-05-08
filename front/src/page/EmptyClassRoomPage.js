@@ -4,6 +4,9 @@ import Card from "../components/common/Card";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 
+import "../styles/Card.css";
+import "../styles/EmptyClassRoomPage.css";
+
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 // 수업 없으면 없다고 알려주기
@@ -97,7 +100,7 @@ const EmptyClassRoomPage = () => {
     };
 
     return <AuthPage>
-        <div className="flex flex-row items-center justify-end w-1/3 max-lg:w-3/5">
+        <div className="Select-Container EmptyClassRoomPage-Container-Size">
             <select ref={buildingSelector} onChange={onBuildingChange} className="Select-Building">
                 <option value="-11">건물을 선택하세요</option>
                 {buildingList && buildingList.map(v => (
@@ -112,24 +115,29 @@ const EmptyClassRoomPage = () => {
                 ))}
             </select>
         </div>
+
+        <div className="ClassRoom-Container EmptyClassRoomPage-Container-Size">
         {classRoomList && Object.keys(classRoomList).map(classRoom => {
             return (<Card key={classRoom}>
-                <div className="Card-Title">{classRoom}</div>
-                <div className="Card-Detail">
-                    {
-                        classRoomList[classRoom].map(info => {
-                            const startTime = `${info.START < 1000 ? "0" : ""}${parseInt(info.START / 100)}:${info.START % 100}${info.START % 100 === 0 ? "0": ""}`;
-                            const endTime = `${info.END < 1000 ? "0" : ""}${parseInt(info.END / 100)}:${info.END % 100}${info.END % 100 === 0 ? "0": ""}`;
+                <div className="Card-Title Card-Title-Text-Size">{classRoom}</div>
+                <div className="Card-Detail Card-Detail-Margin">
+                    {classRoomList[classRoom].map(info => {
+                        const startTime = `${info.START < 1000 ? "0" : ""}${parseInt(info.START / 100)}:${info.START % 100}${info.START % 100 === 0 ? "0": ""}`;
+                        const endTime = `${info.END < 1000 ? "0" : ""}${parseInt(info.END / 100)}:${info.END % 100}${info.END % 100 === 0 ? "0": ""}`;
 
-                            return <div key={info.CLASSROOM_NM} className="flex flex-row justify-items-center my-2">
-                                <span className="mx-2">{`${info.SUBJECT_NM} (${info.PROFESSOR})`}</span>
-                                <span className="mx-2">{startTime} ~ {endTime}</span>
-                            </div>
-                        })
-                    }
+                        return <div key={info.CLASSROOM_NM} className="ClassRoom-Content">
+                            <span style={{
+                                marginLeft: "0.5rem",
+                                marginRight: "0.5rem",
+                            }}>{`${info.SUBJECT_NM} (${info.PROFESSOR})`}</span>
+                            <span style={{
+                                marginLeft: "0.5rem",
+                                marginRight: "0.5rem",
+                            }}>{startTime} ~ {endTime}</span>
+                        </div>})}
                 </div>
             </Card>);
-        })}
+        })}</div>
     </AuthPage>
 }
 

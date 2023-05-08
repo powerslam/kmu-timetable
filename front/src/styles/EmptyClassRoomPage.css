@@ -1,0 +1,62 @@
+.Select-Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.EmptyClassRoomPage-Container-Size {
+    width: 60%;
+}
+
+.Select-Building {
+    border: 2px solid;
+    border-color: var(--green);
+    border-radius: 0.5rem;
+    width: 40%;
+    color: rgb(17 24 39);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.625rem;
+    background-color: rgb(249 250 251);
+    text-align: center;
+}
+
+.Select-Building-Font-Size {
+    font-size: 0.875rem;
+}
+
+.Select-Building:disabled {
+    border-color: rgb(107, 114, 128);
+}
+
+.ClassRoom-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ClassRoom-Content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1000px) {
+    .EmptyClassRoomPage-Container-Size { width: 40%; }
+}
+
+@media (max-width: 700px) {
+    .EmptyClassRoomPage-Container-Size { width: 70%; }
+    .Select-Building-Font-Size {font-size: 0.3rem; }
+}
+
+
+@media (max-width: 500px) {
+    .EmptyClassRoomPage-Container-Size { width: 90%; }
+    .Select-Building-Font-Size {font-size: 0.3rem; }
+}
