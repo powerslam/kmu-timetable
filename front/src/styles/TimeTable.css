@@ -1,0 +1,87 @@
+.Common {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-color: gray;
+    background-color: white;
+}
+
+.Grid-Item {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 3rem;
+}
+
+.Grid-Container {
+    border-color: gray;
+    border-left: 1px solid;
+    border-top: 1px solid;
+
+    text-align: center;
+
+    display: grid;
+}
+
+.Grid-Layout {
+    grid-template-columns: repeat(9, 5rem);
+    grid-template-rows: repeat(19, 3rem);
+}
+
+@media (max-width: 750px) {
+    .Grid-Layout {
+        grid-template-columns: repeat(9, 4rem);
+        grid-template-rows: repeat(19, 2rem);
+    }
+    .Grid-Item {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .Grid-Layout {
+        grid-template-columns: repeat(9, 3.5rem);
+        grid-template-rows: repeat(19, 2rem);
+    }
+    .Grid-Item {
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width: 546px) {
+    .Grid-Layout {
+        grid-template-columns: repeat(9, 3rem);
+        grid-template-rows: repeat(19, 2rem);
+    }
+    .Grid-Item {
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width: 446px) {
+    .Grid-Layout {
+        grid-template-columns: repeat(9, 2.5rem);
+        grid-template-rows: repeat(19, 1.8rem);
+    }
+    .Grid-Item {
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .Grid-Layout {
+        grid-template-columns: repeat(9, 1.8rem);
+        grid-template-rows: repeat(19, 1.8rem);
+    }
+    .Grid-Item {
+        font-size: 0.5rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+    }
+}
