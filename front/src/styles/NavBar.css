@@ -1,7 +1,5 @@
 .menu-body {
-    width: 100vw;
-    height: 7.5rem;
-    
+    width: 100%;
     background-color: var(--blue);
     
     display: flex;
@@ -13,9 +11,12 @@
     top: 0%; left: 0%;
 }
 
+.menu-body-height {
+    height: 8%;
+}
+
 .menu-title-container {
     display: flex;
-    flex-shrink: 0;
     color: white;
 
     margin-left: 2rem;
@@ -29,7 +30,6 @@
 
 .menu-title {
     font-weight: 600;
-    letter-spacing: -0.025em;
     font-size: 3rem;
 }
 
@@ -52,8 +52,15 @@
     color: white;
 }
 
-@media (min-width: 768px) {
-    .menu-icon {
+.icon-container {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.2rem;
+}
+
+/* 768px 하면 둘 다 사라진다 */
+@media (min-width: 769px) {
+    .icon-container {
         display: none;
     }
 }
@@ -61,7 +68,8 @@
 @media (max-width: 768px) {
     .menu-title-container {
         display: flex;
-        flex-shrink: 0;
+        flex-direction: row;
+        align-items: center;
         color: white;
     
         margin-left: 1rem;
@@ -69,8 +77,7 @@
     }
 
     .menu-title {
-        font-weight: 500;
-        letter-spacing: -0.025em;
+        font-weight: 600;
         font-size: 2rem;
     }
     
@@ -78,29 +85,34 @@
         display: none;
     }
 
-    .menu-icon {
+    .icon-container {
         margin-right: 1rem;
+    }
+
+    .icon {
         fill: var(--skyblue);
     }
 
-    .menu-icon:hover {
+    .icon:hover {
         fill: white;
     }
 }
 
-
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .menu-title {
-        font-size: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
-    .menu-icon{
-        width: 1rem;
-        height: 1rem;
-        margin-right: 3px;    
+    .icon-container {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;
     }
+}
 
-    .menu-icon:hover {
-        fill: white;
+@media (max-height: 800px) {
+    .menu-body-height {
+        height: 12%;
     }
 }
