@@ -1,14 +1,12 @@
-import { TIME_HEAD, WEEK_HEAD } from '../../lib/variables';
-import { INSERT_SBJ_TO_TIMETABLE, DELETE_SBJ_FROM_TIMETABLE, useServiceDispatch, useServiceState } from '../../lib/ServiceContext';
+import { TIME_HEAD, WEEK_HEAD } from '../lib/variables';
+import { INSERT_SBJ_TO_TIMETABLE, DELETE_SBJ_FROM_TIMETABLE, useServiceDispatch, useServiceState } from '../lib/ServiceContext';
 import { useEffect } from 'react';
 
 import axios from 'axios';
 
-import styles from '../../styles/TimeTable.module.css';
+import '../styles/TimeTable.css';
 
 const TimeTable = () => {
-    const windowSize = window.innerWidth;
-
     const state = useServiceState();
     const dispatch = useServiceDispatch();
 
@@ -70,10 +68,10 @@ const TimeTable = () => {
         })();
     }
 
-    return <div className={styles.gridContainer}>
+    return <div className="Grid-Container Grid-Layout">
         {Array(18 * 7).fill(1).map((_, rc) => {
             return <div key={rc} 
-                className={`${styles.common} ${styles.gridItem}`}
+                className="Common Grid-Item"
                 style={{
                     gridColumnStart: rc % 7 + 2, // 2 ~ 8
                     gridRowStart: parseInt(rc / 7) + 2,
@@ -82,7 +80,7 @@ const TimeTable = () => {
 
         {WEEK_HEAD.map((v, i) => {
             return <div key={v+i} 
-                className={`${styles.common} ${styles.gridItem}`}
+                className="Common Grid-Item"
                 style={{
                     gridColumnStart: i + 1,
                     gridRowStart: 1,
@@ -91,7 +89,7 @@ const TimeTable = () => {
 
         {TIME_HEAD.alpha.daytime.time.map((v, i) => {
             return <div key={v} 
-                className={`${styles.common} ${styles.gridItem}`}
+                className="Common Grid-Item"
                 style={{
                     gridColumnStart: 1,
                     gridRowStart: i + 2,
@@ -100,7 +98,7 @@ const TimeTable = () => {
 
         {TIME_HEAD.number.daytime.time.map((v, i) => {
             return <div key={v} 
-                className={`${styles.common} ${styles.gridItem}`}
+                className="Common Grid-Item"
                 style={{
                     gridColumnStart: 9,
                     gridRowStart: i + 2,
@@ -131,6 +129,7 @@ const TimeTable = () => {
                             gridRowEnd: rowEnd}}>
                         <div style={{height: "20px"}}>
                             <button style={{
+                                backgroundColor: "transparent",
                                 position: "absolute",
                                 top: "-4px", right: "4px",
                                 height: "20px", width: "20px",
