@@ -5,9 +5,9 @@ const SearchMenuItemFilterButton = ({title, onClick, Key }) => {
     const dispatch = useServiceDispatch();
     
     return <button className="MenuBtn FilterBtn" onClick={onClick}>
-            {title}
+            <span className="FilterBtn-Title">{title}</span>
             {(state.filterData[Key] && state.filterData[Key].length > 0) ?  
-                <><span className="Modal-InputData-Stroke">{typeof(state.filterData[Key]) === 'object' ? state.filterData[Key].join(', ') : state.filterData[Key]}</span>
+                <><div className="Modal-InputData-Stroke">{typeof(state.filterData[Key]) === 'object' ? state.filterData[Key].join(', ') : state.filterData[Key]}</div>
                 <div onClick={(e) => {
                     e.stopPropagation();
                     dispatch({ type: Key, payload: "" });}}

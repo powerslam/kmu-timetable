@@ -90,7 +90,7 @@
     border-radius: 9999px;
 
     padding: 0.3rem;
-    margin-left: 0.5rem;
+    margin-left: 0.3rem;
 
     font-weight: 400;
 
@@ -106,5 +106,12 @@
 
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .Modal-InputData-Stroke {
+        font-size: 0.01rem;
+        margin: 0;
+    }
 }
 

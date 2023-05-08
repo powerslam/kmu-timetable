@@ -39,7 +39,9 @@ const SearchMenuItemFilter = ({ onClose }) => {
                             setOpenBit(openBit | WEK);
                         }}/>
                 </div>
-                <button className="MenuBtn CloseBtn" onClick={onClose}>닫기</button>
+                <button className="MenuBtn CloseBtn" onClick={onClose}>
+                    <span className="FilterBtn-Title">닫기</span>
+                </button>
             
                 <TextInputModal
                     title="과목명 검색"
