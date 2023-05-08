@@ -3,7 +3,6 @@ export const NULL_STR = "\u00A0";
 export const MAIN_PATH = '/';
 export const LOGIN_PATH = '/login';
 export const SIGNUP_PATH = '/signup';
-export const TRAFFIC_PATH = '/main/traffic';
 export const TIMETABLE_PATH = '/main/timetable';
 export const EMPTYCLASSROOM_PATH = '/main/emptyclassroom';
 

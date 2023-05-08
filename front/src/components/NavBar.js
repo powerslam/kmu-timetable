@@ -2,13 +2,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import "../styles/NavBar.css";
 
-import { ReactComponent as BusIcon } from "../resources/bus.svg";
 import { ReactComponent as LoginIcon } from "../resources/login.svg";
 import { ReactComponent as LogoutIcon } from "../resources/logout.svg";
 import { ReactComponent as ScheduleIcon } from "../resources/schedule.svg";
 import { ReactComponent as EmptyRoomIcon } from "../resources/emptyroom.svg";
 
-import { MAIN_PATH, LOGIN_PATH, TRAFFIC_PATH, TIMETABLE_PATH, EMPTYCLASSROOM_PATH } from "../lib/variables";
+import { MAIN_PATH, LOGIN_PATH, TIMETABLE_PATH, EMPTYCLASSROOM_PATH } from "../lib/variables";
 import { LOGOUT, useServiceDispatch } from "../lib/ServiceContext";
 
 const NavBar = () => {
@@ -35,13 +34,6 @@ const NavBar = () => {
                     <span className="menu-text">빈 강의실</span>
                     <div className="icon-container">
                         <EmptyRoomIcon className="icon"/>
-                    </div>
-                </NavLink>
-
-                <NavLink className="link" to={ TRAFFIC_PATH }>
-                    <span className="menu-text">교통정보</span>
-                    <div className="icon-container">
-                        <BusIcon className="icon"/>
                     </div>
                 </NavLink>
 
