@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import TextField from "../components/common/TextField";
 import { LOGIN_PATH } from '../lib/variables';
 
+import '../styles/SignUpPage.css';
+
 const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [pwd, setPWD] = useState("");
@@ -54,37 +56,29 @@ const SignUpPage = () => {
     }
 
     return (
-        <form className="w-full text-center items-center" onSubmit={createUser}>
-            <label className="font-bold text-3xl mx-1 my-1">회원가입</label>
-            <div className="flex justify-center w-full">
-                <TextField id="email" type="text"
-                    addStyle="sz-normal"
-                    placeholder="이메일"
-                    onChange={onChange}
-                    value={email}/>
-            </div>
+        <form className="Page" onSubmit={createUser}>
+            <label className="Signup-Title">회원가입</label>
+            <TextField id="email" type="text"
+                addStyle="sz-normal"
+                placeholder="이메일"
+                onChange={onChange}
+                value={email}/>
 
-            <div className="flex justify-center w-full">
-                <TextField id="pwd" type="password"
-                    addStyle="sz-normal"
-                    placeholder="비밀번호"
-                    onChange={onChange}
-                    value={pwd}/>
-            </div>
-            
-            <div className="flex justify-center w-full">
-                <TextField id="pwdChk" type="password"
-                    addStyle="sz-normal"
-                    placeholder="비밀번호 확인"
-                    onChange={onChange}
-                    value={pwdChk}/>
-            </div>
+            <TextField id="pwd" type="password"
+                addStyle="sz-normal"
+                placeholder="비밀번호"
+                onChange={onChange}
+                value={pwd}/>
+        
+            <TextField id="pwdChk" type="password"
+                addStyle="sz-normal"
+                placeholder="비밀번호 확인"
+                onChange={onChange}
+                value={pwdChk}/>
 
-            <div className="flex justify-center w-full">
-                <button className="btn btn-green sz-normal">
-                    회원가입하기
-                </button>
-            </div>
+            <button className="btn bg-lightgreen sz-normal">
+                회원가입하기
+            </button>
         </form>
     );
 }
