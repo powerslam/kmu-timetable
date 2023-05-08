@@ -32,11 +32,11 @@ const SearchMenu = ({ onClose }) => {
 
     // 가져올 때 주간만 가져오도록
     return <div className="Search-Menu">
-        <div className="w-full h-1/5 bg-white">
+        <div className="MenuHeader-Container MenuHeader-Position">
             <SearchMenuItemFilter onClose={onClose} />
             <SearchMenuHeader />
         </div>
-        <ul className="w-full h-4/5 text-center overflow-auto Scroll">
+        <ul className="MenuItem-Container MenuItem-Position Scroll">
             {state.menuData && Object.keys(state.menuData).map(data => {
                 const {
                     DEPT_CD, CATEGORY_CD, SUBJECT_CD, SUBJECT_NM, CREDIT, PROFESSOR, REMARK
@@ -63,8 +63,6 @@ const SearchMenu = ({ onClose }) => {
                     return `${WEEK[i]} - ${START[i]} ~ ${END[i]}`;
                 }).join('\n');
 
-                // 요일 - 시간으로 변경 ==> 사실 교실도 나오는게 좋지 않을까?
-                
                 if(GRADE.length > 1) GRADE = GRADE[0] + " - " + GRADE[GRADE.length - 1];
 
                 return <SearchMenuItem key={SUBJECT_CD} 

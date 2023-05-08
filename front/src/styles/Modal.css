@@ -1,27 +1,110 @@
-.Container {
-    @apply h-fit fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50;
-    @apply rounded-xl p-4 shadow-lg;
-    @apply border-2 border-[color:var(--blue)] bg-white;
+.Modal-Container {
+    height: fit-content;
+
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 0.75rem;
+
+    padding: 1rem;
+
+    border: 0.5rem;
+    border-color: var(--blue);
+
+    background-color: white;
+
+    z-index: 100;
+
+    /* shadow-lg */
 }
 
-.SubmitBtn {
-    @apply text-white font-bold py-1 px-4 rounded mr-2;
-    @apply bg-[color:var(--blue)];
+.Modal-Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1rem;
 }
 
-.SubmitBtn:hover {
-    @apply bg-[color:var(--lightblue)];
+.Modal-Header-Title {
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
-.CancelBtn {
-    @apply border border-gray-500 text-gray-500 font-bold py-1 px-4 rounded;
+.Modal-CloseBtn { color: rgb(127, 127, 127); }
+
+.Modal-CloseBtn:hover { color: rgb(180, 180, 180); }
+
+.Modal-Btn-Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
-.CancelBtn:hover {
-    @apply border-gray-700 text-gray-700;
+.Modal-SubmitBtn {
+    color: white;
+    font-weight: 600;
+
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    border-radius: 0.25rem;
+
+    margin-right: 0.5rem;
+
+    background-color: var(--blue);
 }
 
-.InputData-Stroke {
-    @apply bg-gray-200 rounded-full px-2 py-1 ml-1 text-sm font-semibold text-gray-700 max-md:mb-2;
+.Modal-SubmitBtn:hover { background-color: var(--skyblue); }
+
+.Modal-CancelBtn {
+    border: 1px solid;
+    border-radius: 0.25rem;
+    border-color: var(--blue);
+
+    background-color: white;
+    color: var(--blue);
+
+    font-weight: 600;
+
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    border-radius: 0.25rem;
+}
+
+.Modal-CancelBtn:hover {
+    border-color: var(--skyblue);
+    color: var(--skyblue);
+}
+
+.Modal-InputData-Stroke {
+    border-radius: 9999px;
+
+    padding: 0.3rem;
+    margin-left: 0.5rem;
+
+    font-weight: 400;
+
+    background-color: gray;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.CheckInput-Modal-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 

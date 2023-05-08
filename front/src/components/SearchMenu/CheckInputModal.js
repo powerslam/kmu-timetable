@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Modal from "../common/Modal";
 
+import "../../styles/Modal.css";
+
 const CheckInputModal = ({ isOpen, onClose, onSubmit, options, title }) => {
     const [selectedOption, setSelectedOption] = useState(Array(options.length).fill(false));
 
@@ -14,7 +16,7 @@ const CheckInputModal = ({ isOpen, onClose, onSubmit, options, title }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} title={title} handleSubmit={handleSubmit}>
-            <div className="flex flex-col items-center my-4 ">
+            <div className="CheckInput-Modal-Container">
                 {options.map(({label, value}) => (
                     <div key={value}>
                         <input type="checkbox" value={value}
@@ -24,7 +26,7 @@ const CheckInputModal = ({ isOpen, onClose, onSubmit, options, title }) => {
                                     [value]: !selectedOption[value],
                                 })
                             }}/>
-                        <label className="ml-2">{label}</label>
+                        <label style={{ marginLeft: "0.5rem"}}>{label}</label>
                     </div>
                 ))}
             </div>

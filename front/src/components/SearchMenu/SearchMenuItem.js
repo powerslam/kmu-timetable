@@ -1,7 +1,7 @@
 import '../../styles/SearchMenu.css';
 
 const SearchMenuItem = ({ onClick, deptCD, categoryCD, grade, sbjNM, sbjCD, division, credit, professor, time, remark}) => {
-    return <li className="MenuElement MenuItem z-0" onClick={onClick}>
+    return <li className="MenuElement MenuItem" onClick={onClick}>
         <div className="DeptCD">{ deptCD }</div>
         <div className="CategoryCD">{ categoryCD }</div>
         <div className="Grade">{ grade }</div>

@@ -3,6 +3,8 @@ import { useState } from "react";
 import Modal from "../common/Modal";
 import TextField from "../common/TextField";
 
+import "../../styles/Modal.css";
+
 const TextInputModal = ({ isOpen, onClose, onSubmit, placeholder, title }) => {
     const [text, setText] = useState("");
 

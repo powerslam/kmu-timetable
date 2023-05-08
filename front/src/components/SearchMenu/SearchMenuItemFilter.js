@@ -13,8 +13,8 @@ const SearchMenuItemFilter = ({ onClose }) => {
     const SUB = 1, PRO = 2, WEK = 4;
     const dispatch = useServiceDispatch();
 
-    return <div className="MenuFilter mt-2">
-                <div className="flex flex-row">
+    return <div className="MenuFilter">
+                <div className="MenuBtn-Container">
                     <SearchMenuItemFilterButton 
                         title={"과목명 : "}
                         Key={SUBJECT_NM}
@@ -36,10 +36,10 @@ const SearchMenuItemFilter = ({ onClose }) => {
                         Key={WEEK}
                         onClick={() => {
                             if(openBit !== 0) return;
-                            setOpenBit(openBit | WEEK);
+                            setOpenBit(openBit | WEK);
                         }}/>
                 </div>
-                <button className="Btn Btn-Orange" onClick={onClose}>닫기</button>
+                <button className="MenuBtn CloseBtn" onClick={onClose}>닫기</button>
             
                 <TextInputModal
                     title="과목명 검색"
@@ -49,27 +49,25 @@ const SearchMenuItemFilter = ({ onClose }) => {
                     onClose={() => setOpenBit(0)}
                 />
 
-                <TextInputModal
-                    title="교수님 성함 검색"
+                <TextInputModal title="교수님 성함 검색"
                     placeholder="교수님 성함"
                     isOpen={openBit === PRO}
                     onSubmit={(data) => {dispatch({ type: PROFESSOR, payload: data })}}
                     onClose={() => setOpenBit(0)}
                 />
 
-                <CheckInputModal
-                    title="학년"
+                <CheckInputModal title="학년"
                     isOpen={openBit === WEK}
                     onClose={() => setOpenBit(0)}
                     onSubmit={(data) => {dispatch({ type: WEEK, payload: data })}}
                     options={[
+                        { label: "일요일", value: 1},
                         { label: "월요일", value: 2},
                         { label: "화요일", value: 3},
                         { label: "수요일", value: 4},
                         { label: "목요일", value: 5},
                         { label: "금요일", value: 6},
                         { label: "토요일", value: 7},
-                        { label: "일요일", value: 1},
                     ]}
                 />
             </div>
