@@ -13,7 +13,7 @@ import './styles/index.css';
 
 function App() {
   return (
-      <div className="main-container">
+      <div className="main-container main-container-height">
         <Routes>
           <Route path={ MAIN_PATH } element={<MainPage />} />
           <Route path={ LOGIN_PATH } element={<LoginPage />} />
