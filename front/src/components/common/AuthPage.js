@@ -6,7 +6,7 @@ const AuthPage = ({ children }) => {
     
     return (
         !isLogin ? <NeedLoginPage /> :
-        <div className="Auth-Page Auth-Page-Margin-Top">
+        <div className="Auth-Page Auth-Page-Margin-Top Scroll">
             { children }
         </div>
     )
