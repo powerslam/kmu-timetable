@@ -65,13 +65,19 @@ const MainPage = () => {
                     }
                 ).map(({WEEK, SUBJECT_NM, PROFESSOR, BUILDING_NM, FLOOR, CLASSROOM_NM, START, END}) => {
                     const idx = WEEK.split(',').indexOf((new Date().getDay() + 1).toString());
+                    
+                    const start = START.split(',')[idx];
+                    const end = END.split(',')[idx];
+
+                    const startTime = `${START < 1000 ? "0" : ""}${parseInt(start / 100)}:${start % 100}${start % 100 === 0 ? "0": ""}`;
+                    const endTime = `${end < 1000 ? "0" : ""}${parseInt(end / 100)}:${end % 100}${end % 100 === 0 ? "0": ""}`;
 
                     return {
                         SUBJECT_NM: SUBJECT_NM, 
                         PROFESSOR: PROFESSOR,
                         CLASSROOM_INFO: `${BUILDING_NM.split(',')[idx]} ${FLOOR.split(',')[idx].replace("-", "지하")}층 ${CLASSROOM_NM.split(',')[idx]}`,
-                        START: parseInt(START.split(',')[idx]),
-                        END: parseInt(END.split(',')[idx])
+                        START: startTime,
+                        END: endTime
                     };
                 }).sort((a, b) => a.START - b.START) // 시작 시간이 빠른 순으로 정렬
             );
