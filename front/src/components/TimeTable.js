@@ -47,7 +47,6 @@ const TimeTable = () => {
                     }).then(res => {
                         // 만약에 500 안뜨면 DB에 들어간거니까 update
                         dispatch({ type: INSERT_SBJ_TO_TIMETABLE });
-                        return res.data;
                     }).catch(err => console.error(err));
                 })();
             } else alert("다른 과목과 시간이 겹칩니다!!");
