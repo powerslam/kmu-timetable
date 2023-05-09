@@ -10,7 +10,7 @@ import SearchMenuItemFilter from './SearchMenuItemFilter';
 import SearchMenuHeader from './SearchMenuHeader';
 import SearchMenuItem from './SearchMenuItem';
 
-import { getUniversityName, getCategoryName } from '../../lib/variables';
+import { getUniversityName, getCategoryName, API_SERVER } from '../../lib/variables';
 
 const SearchMenu = ({ onClose }) => {
     const state = useServiceState();
@@ -23,7 +23,7 @@ const SearchMenu = ({ onClose }) => {
         const queryString = Object.keys(state.filterData).filter(v => state.filterData[v].length !== 0).map(v => `${v}=${encodeURIComponent(state.filterData[v])}`).join('&');
 
         (async () => {
-            const res = await axios.get("https://kmu-timtable-ivort.run.goorm.site/class" + (queryString ? `/?${queryString}` : ""))
+            const res = await axios.get(API_SERVER + "/class" + (queryString ? `/?${queryString}` : ""))
                 .then(res => res.data)
                 .catch(err => console.error(err));
             dispatch({ type: UPDATE_MENU_ITEMS, payload: res });

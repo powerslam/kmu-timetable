@@ -1,5 +1,8 @@
 export const NULL_STR = "\u00A0";
 
+// CHANGE!!!
+export const API_SERVER = "https://kmu-timtable-ivort.run.goorm.site";
+
 export const MAIN_PATH = '/';
 export const LOGIN_PATH = '/login';
 export const SIGNUP_PATH = '/signup';

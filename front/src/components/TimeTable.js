@@ -2,6 +2,8 @@ import { TIME_HEAD, WEEK_HEAD } from '../lib/variables';
 import { INSERT_SBJ_TO_TIMETABLE, DELETE_SBJ_FROM_TIMETABLE, useServiceDispatch, useServiceState } from '../lib/ServiceContext';
 import { useEffect } from 'react';
 
+import { API_SERVER } from '../lib/variables';
+
 import axios from 'axios';
 
 import '../styles/TimeTable.css';
@@ -40,7 +42,7 @@ const TimeTable = () => {
                 const bgColor = state.tmpSelectSbjs.BG_COLOR;
 
                 (async () => {
-                    await axios.post("https://kmu-timtable-ivort.run.goorm.site/timetable", {
+                    await axios.post(API_SERVER + "/timetable", {
                         ID: id,
                         SUBJECT_CD: sbjCD,
                         WEEK: week, BG_COLOR: bgColor,
@@ -60,7 +62,7 @@ const TimeTable = () => {
         const queryString = `/?id=${id}&sbjCD=${sbjCD}&week=${week}`;
 
         (async () => {
-            await axios.delete("https://kmu-timtable-ivort.run.goorm.site/timetable" + queryString).then(res => {
+            await axios.delete(API_SERVER + "/timetable" + queryString).then(res => {
                 // 만약에 500 안뜨면 DB에서 삭제된거니까 delete
                 dispatch({ type: DELETE_SBJ_FROM_TIMETABLE, payload: info });
                 return res.data;

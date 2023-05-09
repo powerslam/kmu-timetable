@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 
 import "../styles/Card.css";
 import "../styles/EmptyClassRoomPage.css";
+import { API_SERVER } from "../lib/variables";
 
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
@@ -20,7 +21,9 @@ const EmptyClassRoomPage = () => {
     
     useEffect(() => {
         const getBuildingList = async () => {
-            const data = await axios.get("https://kmu-timtable-ivort.run.goorm.site/building").then(res => res.data).catch(err => console.log(err));
+            const data = await axios.get(API_SERVER + "/building")
+                .then(res => res.data)
+                .catch(err => console.log(err));
             setBuildingList(data);
         }
 
@@ -38,7 +41,7 @@ const EmptyClassRoomPage = () => {
         setClassRoomList(null);
 
         const getData = async () => {
-            const data = await axios.get(`https://kmu-timtable-ivort.run.goorm.site/building/${buildingCD}`)
+            const data = await axios.get(API_SERVER + `/building/${buildingCD}`)
                 .then(res => res.data)
                 .then(data => data.map(({ FLOOR }) => FLOOR))
                 .catch(err => console.log(err));
@@ -53,19 +56,14 @@ const EmptyClassRoomPage = () => {
 
     const getClassRoomList = (bdg, flr) => {
         const getData = async () => {
-            const data = await axios.get(`https://kmu-timtable-ivort.run.goorm.site/building/?bdg=${bdg}&flr=${flr}`)
+            const data = await axios.get(API_SERVER + `/building/?bdg=${bdg}&flr=${flr}`)
                 .then(res => res.data)
                 .then(data => {
-                    console.log(data);
-
                     const rooms = {};
-
                     data.forEach(({ CLASSROOM_NM, ...classInfo }) => {
                         if(!rooms.hasOwnProperty(CLASSROOM_NM)) rooms[CLASSROOM_NM] = [];
                         rooms[CLASSROOM_NM].push(classInfo);
                     });
-
-                    console.log(rooms);
                     return rooms;
                 })
                 .catch(err => console.log(err));

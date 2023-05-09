@@ -6,7 +6,7 @@ import "../styles/LoginPage.css";
 import TextField from "../components/common/TextField";
 
 import { useNavigate } from "react-router-dom";
-import { SIGNUP_PATH,  MAIN_PATH } from '../lib/variables';
+import { SIGNUP_PATH,  MAIN_PATH, API_SERVER } from '../lib/variables';
 import { LOGIN, useServiceDispatch } from '../lib/ServiceContext';
 
 const LoginPage = () => {
@@ -36,7 +36,7 @@ const LoginPage = () => {
         else if(!pwd) alert("비밀번호가 비었습니다.");
         else{
             axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
-            axios.post("https://kmu-timtable-ivort.run.goorm.site/login", {
+            axios.post(API_SERVER + "/login", {
                 id: email,
                 pwd: pwd,
             }).then((res) => {

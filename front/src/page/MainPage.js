@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { LOGIN_PATH } from "../lib/variables";
+import { API_SERVER, LOGIN_PATH } from "../lib/variables";
 import { useServiceState, useServiceDispatch, LOGOUT, INITAILIZE_TIMETABLE } from "../lib/ServiceContext";
 
 import Card from "../components/common/Card";
@@ -30,8 +30,9 @@ const MainPage = () => {
     useEffect(() => {
         if(userId){
             (async () => {
-                await axios.get(`https://kmu-timtable-ivort.run.goorm.site/timetable/${userId}`).then(res => {
-                    dispatch({ type: INITAILIZE_TIMETABLE, payload: res.data });
+                await axios.get(API_SERVER + `/timetable/${userId}`)
+                    .then(res => {
+                        dispatch({ type: INITAILIZE_TIMETABLE, payload: res.data });
                 }).catch(err => console.error(err));
             })();
         }
@@ -40,7 +41,12 @@ const MainPage = () => {
     useEffect(() => {
         if(state.selectSbjs.length > 0) {
             setClassList(
+                // state.selectSbjs -> 시간표에 등록된 수업
                 state.selectSbjs.filter(
+                    // @param: WEEK -> 수업 A가 배치된 요일 / START -> 수업 A의 시작 시각
+                    // 조건 : 1) 오늘 수업이 아니라면 false
+                    //        2) 시작 시각이 현재 시각을 지났다면 false
+                    // => 최종적으로는 두 조건 중 하나를 만족하면 필터링된다.
                     ({WEEK, START}) => {
                         const today = new Date();
                         const idx = WEEK.split(',').indexOf((today.getDay() + 1).toString());
@@ -59,7 +65,7 @@ const MainPage = () => {
                     }
                 ).map(({WEEK, SUBJECT_NM, PROFESSOR, BUILDING_NM, FLOOR, CLASSROOM_NM, START, END}) => {
                     const idx = WEEK.split(',').indexOf((new Date().getDay() + 1).toString());
-                    
+
                     return {
                         SUBJECT_NM: SUBJECT_NM, 
                         PROFESSOR: PROFESSOR,
@@ -67,7 +73,7 @@ const MainPage = () => {
                         START: parseInt(START.split(',')[idx]),
                         END: parseInt(END.split(',')[idx])
                     };
-                }).sort((a, b) => a.START - b.START)
+                }).sort((a, b) => a.START - b.START) // 시작 시간이 빠른 순으로 정렬
             );
         }
     }, [state.selectSbjs]);
@@ -122,7 +128,6 @@ const MainPage = () => {
                     </span> : 
                     <div className="TodayClass-CardList">
                         {classList.map(({SUBJECT_NM, PROFESSOR, START, END, CLASSROOM_INFO}) => {
-
                             return <Card key={START}>
                                 <div className="Card-Title Card-Title-Text-Size">
                                     {SUBJECT_NM}

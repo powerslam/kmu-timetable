@@ -7,6 +7,7 @@ import TimeTable from "../components/TimeTable";
 import SearchMenu from "../components/SearchMenu/SearchMenu";
 
 import { INITAILIZE_TIMETABLE, useServiceDispatch } from '../lib/ServiceContext';
+import { API_SERVER } from '../lib/variables';
 
 const TimeTablePage = () => {
     const [ isMenuOpen, setIsMenuOpen ] = useState(false);
@@ -15,7 +16,7 @@ const TimeTablePage = () => {
     useEffect(() => {
         const id = localStorage.getItem("id");
         (async () => {
-            await axios.get(`https://kmu-timtable-ivort.run.goorm.site/timetable/${id}`).then(res => {
+            await axios.get(API_SERVER + `/timetable/${id}`).then(res => {
                 dispatch({ type: INITAILIZE_TIMETABLE, payload: res.data });
             }).catch(err => console.error(err));
         })();
