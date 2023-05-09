@@ -57,13 +57,15 @@ const MainPage = () => {
                         
                         return true;
                     }
-                ).map(info => {
-                    const idx = info.WEEK.split(',').indexOf((new Date().getDay() + 1).toString());
+                ).map(({WEEK, SUBJECT_NM, PROFESSOR, BUILDING_NM, FLOOR, CLASSROOM_NM, START, END}) => {
+                    const idx = WEEK.split(',').indexOf((new Date().getDay() + 1).toString());
+                    
                     return {
-                        SUBJECT_NM: info.SUBJECT_NM, 
-                        PROFESSOR: info.PROFESSOR, 
-                        START: parseInt(info.START.split(',')[idx]),
-                        END: parseInt(info.END.split(',')[idx])
+                        SUBJECT_NM: SUBJECT_NM, 
+                        PROFESSOR: PROFESSOR,
+                        CLASSROOM_INFO: `${BUILDING_NM.split(',')[idx]} ${FLOOR.split(',')[idx].replace("-", "지하")}층 ${CLASSROOM_NM.split(',')[idx]}`,
+                        START: parseInt(START.split(',')[idx]),
+                        END: parseInt(END.split(',')[idx])
                     };
                 }).sort((a, b) => a.START - b.START)
             );
@@ -119,7 +121,8 @@ const MainPage = () => {
                         🎉 오늘 남은 수업이 없습니다. 🎉
                     </span> : 
                     <div className="TodayClass-CardList">
-                        {classList.map(({SUBJECT_NM, PROFESSOR, START, END}) => {
+                        {classList.map(({SUBJECT_NM, PROFESSOR, START, END, CLASSROOM_INFO}) => {
+
                             return <Card key={START}>
                                 <div className="Card-Title Card-Title-Text-Size">
                                     {SUBJECT_NM}
@@ -127,6 +130,7 @@ const MainPage = () => {
 
                                 <div className="Card-Detail Card-Detail-Margin">
                                     <span className="MainPage-Card-Content">{PROFESSOR}</span>
+                                    <span className="MainPage-Card-Content">{CLASSROOM_INFO}</span>
                                     <span className="MainPage-Card-Content">{`${START} ~ ${END}`}</span>
                                 </div>
                             </Card>})}

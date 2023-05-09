@@ -39,36 +39,51 @@ const SearchMenu = ({ onClose }) => {
         <ul className="MenuItem-Container MenuItem-Position Scroll">
             {state.menuData && Object.keys(state.menuData).map(data => {
                 const {
-                    DEPT_CD, CATEGORY_CD, SUBJECT_CD, SUBJECT_NM, CREDIT, PROFESSOR, REMARK
+                    DEPT_CD, CATEGORY_CD, // 학과 및 과목 분류 정보
+                    SUBJECT_CD, SUBJECT_NM, // 과목 정보
+                    CREDIT, PROFESSOR, REMARK // 기타 정보
                 } = state.menuData[data];
 
                 let {
+                    BUILDING_NM, FLOOR, CLASSROOM_NM, // 강의실 정보
                     START, END, WEEK, GRADE
                 } = state.menuData[data];
                 
                 START = START.split(',').map(v => {
                     v = parseInt(v);
-                    return ((v < 1000) ? "0" : "") + `${parseInt(v / 100)}:`
-                            + ((v % 100 === 0) ? "0" : "") + `${parseInt(v % 100)}`;
+                    const hour = parseInt(v / 100);
+                    const minute = v % 100;
+                    return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
                 });
+
                 END = END.split(',').map(v => {
                     v = parseInt(v);
-                    return ((v < 1000) ? "0" : "") + `${parseInt(v / 100)}:`
-                            + ((v % 100 === 0) ? "0" : "") + `${parseInt(v % 100)}`;
+                    const hour = parseInt(v / 100);
+                    const minute = v % 100;
+                    return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
                 });
 
-                WEEK = WEEK.split(',').map(v => WeekStr[parseInt(v) - 1]);
+                const TIME = WEEK.split(',').map((v, i) => {
+                    return [parseInt(v), `${WeekStr[parseInt(v) - 1]} - ${START[i]} ~ ${END[i]}`];
+                }).sort().map(v => v[1]).join('\n');
+                
+                BUILDING_NM = BUILDING_NM.split(',');
+                
+                FLOOR = FLOOR.replaceAll("-", "지하");
+                FLOOR = FLOOR.split(',');
+                
+                CLASSROOM_NM = CLASSROOM_NM.split(',');
 
-                const TIME = START.map((_, i) => {
-                    return `${WEEK[i]} - ${START[i]} ~ ${END[i]}`;
-                }).join('\n');
+                const CLASSROOM_INFO = FLOOR.map((_, i) => {
+                    return `${BUILDING_NM[i]} ${FLOOR[i]}층 ${CLASSROOM_NM[i]}`;
+                })
 
                 if(GRADE.length > 1) GRADE = GRADE[0] + " - " + GRADE[GRADE.length - 1];
 
                 return <SearchMenuItem key={SUBJECT_CD} 
                     onClick={() => {dispatch({ type: TMP_SELECT_SUBJECT, payload: {...state.menuData[data], BG_COLOR: `${Colors[Math.floor(Math.random() * 5)]}`} })}}
                     deptCD={getUniversityName(DEPT_CD)} categoryCD={getCategoryName(CATEGORY_CD)} grade={GRADE} sbjNM={SUBJECT_NM} sbjCD={SUBJECT_CD} 
-                    division={SUBJECT_CD.split('-')[1]} credit={CREDIT} professor={PROFESSOR} time={TIME} remark={REMARK}/>
+                    division={SUBJECT_CD.split('-')[1]} classRoomInfo={CLASSROOM_INFO.join('\n')} credit={CREDIT} professor={PROFESSOR} time={TIME} remark={REMARK}/>
             })}
         </ul>
     </div>
