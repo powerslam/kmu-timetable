@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/kmu-timetable/static/css/main.b80a97e7.css",
-    "main.js": "/kmu-timetable/static/js/main.3feeb9fb.js",
+    "main.css": "/kmu-timetable/static/css/main.4b62f49f.css",
+    "main.js": "/kmu-timetable/static/js/main.f5e9d645.js",
     "index.html": "/kmu-timetable/index.html",
-    "static/media/bus.svg": "/kmu-timetable/static/media/bus.aa15d4e264c2944f475ace21f7032548.svg",
     "static/media/logout.svg": "/kmu-timetable/static/media/logout.4184c27822d0852b1a5e037e076306e7.svg",
     "static/media/login.svg": "/kmu-timetable/static/media/login.8ea65fee8ec04f7dfee8ccfdef71604f.svg",
     "static/media/schedule.svg": "/kmu-timetable/static/media/schedule.197c78201c843d3022beeafb2b859536.svg",
     "static/media/emptyroom.svg": "/kmu-timetable/static/media/emptyroom.2f5dc762d4eb688fc6058fe5fd708df1.svg",
-    "main.b80a97e7.css.map": "/kmu-timetable/static/css/main.b80a97e7.css.map",
-    "main.3feeb9fb.js.map": "/kmu-timetable/static/js/main.3feeb9fb.js.map"
+    "main.4b62f49f.css.map": "/kmu-timetable/static/css/main.4b62f49f.css.map",
+    "main.f5e9d645.js.map": "/kmu-timetable/static/js/main.f5e9d645.js.map"
   },
   "entrypoints": [
-    "static/css/main.b80a97e7.css",
-    "static/js/main.3feeb9fb.js"
+    "static/css/main.4b62f49f.css",
+    "static/js/main.f5e9d645.js"
   ]
 }
