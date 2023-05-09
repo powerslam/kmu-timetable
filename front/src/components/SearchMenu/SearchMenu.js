@@ -63,10 +63,6 @@ const SearchMenu = ({ onClose }) => {
                     return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
                 });
 
-                const TIME = WEEK.split(',').map((v, i) => {
-                    return [parseInt(v), `${WeekStr[parseInt(v) - 1]} - ${START[i]} ~ ${END[i]}`];
-                }).sort().map(v => v[1]).join('\n');
-                
                 BUILDING_NM = BUILDING_NM.split(',');
                 
                 FLOOR = FLOOR.replaceAll("-", "지하");
@@ -78,6 +74,10 @@ const SearchMenu = ({ onClose }) => {
                     return `${BUILDING_NM[i]} ${FLOOR[i]}층 ${CLASSROOM_NM[i]}`;
                 })
 
+                const TIME = WEEK.split(',').map((v, i) => {
+                    return [parseInt(v), `${CLASSROOM_INFO[i]}\n${WeekStr[parseInt(v) - 1]} - ${START[i]} ~ ${END[i]}`];
+                }).sort().map(v => v[1]).join('\n');
+                
                 if(GRADE.length > 1) GRADE = GRADE[0] + " - " + GRADE[GRADE.length - 1];
 
                 return <SearchMenuItem key={SUBJECT_CD} 
