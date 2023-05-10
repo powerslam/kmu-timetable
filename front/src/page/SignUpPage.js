@@ -17,7 +17,7 @@ const SignUpPage = () => {
     const createUser = (e) => {
         e.preventDefault();
 
-        if(!email) alert("이메일이 비었습니다.");
+        if(!email) alert("아이디가 비었습니다.");
         else if(!pwd) alert("비밀번호가 비었습니다.");
         else if(pwd !== pwdChk) alert("비밀번호와 비밀번호 확인이 다릅니다.");
         else{
@@ -60,7 +60,7 @@ const SignUpPage = () => {
             <label className="Signup-Title">회원가입</label>
             <TextField id="email" type="text"
                 addStyle="sz-normal"
-                placeholder="이메일"
+                placeholder="아이디"
                 onChange={onChange}
                 value={email}/>
 
