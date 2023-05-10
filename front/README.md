@@ -93,7 +93,7 @@ npm i
   
   - 다음 사진 처럼 건물을 선택하고, 층을 선택하는 방식이다.
 
-
+  ## 과목 
   ![image](https://github.com/powerslam/kmu-timetable/assets/97532643/6249a2f2-3ff3-4b76-b1fc-5500571f51b5)
   
   - 위의 Input tag에서 건물과 층을 모두 선택하고 나면 API로부터 데이터를 받아와서 값을 보여준다.
