@@ -17,7 +17,6 @@ const SearchMenuItem = ({ onClick, deptCD, categoryCD, grade, sbjNM, sbjCD, divi
         </>:<>
             <div className="Small-Title Item-Content">{`${sbjNM}\n(${sbjCD})`}</div>
             <div className="Item-Content">{ professor }</div>
-            <div className="Item-Content">{ classRoomInfo }</div>
             <div className="Item-Content">{ time }</div>
             <div className="Item-Content">{ grade }학년/{ categoryCD }/{ credit }학점</div>
         </>}
