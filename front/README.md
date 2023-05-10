@@ -1,12 +1,20 @@
 # 프론트엔드
-이 폴더는 React with JS로 구성된 프로젝트이다.
-아래에서는 주요 페이지와 페이지별 주요 컴포넌트에 대해 소개한다.
-
 
 # 목차
-1. [메인 페이지](#메인-페이지)
-2. [시간표 페이지](#시간표-페이지)
-3. [강의실 별 시간표 조회 페이지](#강의실-별-시간표-조회-페이지)
+1. [설치](#설치)
+2. [메인 페이지](#메인-페이지)
+3. [시간표 페이지](#시간표-페이지)
+4. [강의실 별 시간표 조회 페이지](#강의실-별-시간표-조회-페이지)
+
+# 설치
+
+```
+npm i
+```
+
+명령어로 필요한 패키지를 설치하면 실행할 수 있다.
+
+단, 정상적으로 동작하기 위해서는 백엔드가 실행되고 있어야 하며, [varables.js](https://github.com/powerslam/kmu-timetable/blob/master/front/src/lib/variables.js) 파일에서 API_SERVER 값을 백엔드 서버의 주소로 고쳐야 된다.
 
 
 # [메인 페이지](https://github.com/powerslam/kmu-timetable/blob/master/front/src/page/MainPage.js)
@@ -22,6 +30,7 @@
   
   - 회원 아이디와 로그아웃 버튼을 제공한다
   - 그리고 국민대에서 제공하는 주요 서비스 4가지 정도를 추려서 바로가기 버튼을 만들었다.
+
 
 ## 2. 오늘의 수업 영역
 
@@ -43,6 +52,7 @@
   - 시간표 페이지는 사용자가 등록한 시간표를 보여주는 TimeTable 컴포넌트와 사용자가 개설과목을 검색할 수 있게 보여주는 SearchMenu 컴포넌트로 구성되어 있다.
   
   - SearchMenu 컴포넌트는 TimeTable 위에 위치한 버튼으로 접근이 가능하다.
+  
   
   ## [1. TimeTable 컴포넌트](https://github.com/powerslam/kmu-timetable/blob/master/front/src/components/TimeTable.js)
     ![image](https://github.com/powerslam/kmu-timetable/assets/97532643/87805c20-c0cd-464d-9b46-64a9984f3d11)
@@ -77,3 +87,14 @@
 
 - 강의실 별로 오늘 어떤 수업들이 배치되어 있는지 볼 수 있다. 이것을 통해 빈 강의실을 찾아다니는 수고를 덜 수 있다.
 - 이 페이지는 건물과 층 수를 선택하는 input tag 와 해당 건물, 층에 강의실의 과목 목록을 보여준다.
+
+  ## Input Tag
+  ![image](https://github.com/powerslam/kmu-timetable/assets/97532643/3ace9db4-26b3-4631-8b2b-a1111b6298f9)
+  
+  - 다음 사진 처럼 건물을 선택하고, 층을 선택하는 방식이다.
+
+
+  ![image](https://github.com/powerslam/kmu-timetable/assets/97532643/6249a2f2-3ff3-4b76-b1fc-5500571f51b5)
+  
+  - 위의 Input tag에서 건물과 층을 모두 선택하고 나면 API로부터 데이터를 받아와서 값을 보여준다.
+
