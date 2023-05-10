@@ -119,7 +119,7 @@ const MainPage = () => {
                     </button></td>
                         <td><button 
                         className="btn bg-green Link-Btn"
-                        onClick={() => window.open('https://ecampus.kookmin.ac.kr/login/index.php', '_blank')}>
+                        onClick={() => window.open('https://lib.kookmin.ac.kr/#/', '_blank')}>
                             성곡도서관
                     </button></td></tr></tbody>
                 </table>
