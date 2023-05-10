@@ -48,7 +48,7 @@
     background-color: white;
 }
 
-.MenuHeader-Position { height: 20%; }
+.MenuHeader-Position { height: 30%; }
 
 .MenuItem {
     display: flex;

@@ -9,7 +9,7 @@ const SearchMenuHeader = () => {
         <div className="Division">분반</div>
         <div className="Credit">학점</div>
         <div className="Professor">교수님</div>
-        <div className="Time">요일 - 시간</div>
+        <div className="Time">교실/요일/시간</div>
         <div className="Remark">비고</div>
     </div>
 };
